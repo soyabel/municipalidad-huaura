@@ -1,0 +1,131 @@
+<main class="container main-auth">
+  <div class="row ">
+    <div class="col-12 mb-3 d-flex justify-content-end">
+      <button type="button" class="btn btn-danger" (click)="cerrarSession()">Cerrar Session</button>
+    </div>
+    <h4 class="text-center fw-bold">Matrimonio Civil</h4>
+  </div>
+  <div class="card mb-3">
+    <img src="assets/img/matrimonio-civil.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text-center fw-bold">Datos personales</h5>
+      <ul class="list-group list-group-flush">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <p class="text-center fw-bold">Esposo</p>
+            <li class="list-group-item"><span class="fw-bold">Nombres: </span>{{dataRegistroCivil[0].nombresdon}}</li>
+            <li class="list-group-item"><span class="fw-bold">Apellido Paterno:</span>
+              {{dataRegistroCivil[0].paternodon}}</li>
+            <li class="list-group-item"><span class="fw-bold">Apellido Materno:</span>
+              {{dataRegistroCivil[0].maternodon}}</li>
+          </div>
+          <div class="col-12 col-md-6 mt-2 mt-md-0">
+            <p class="text-center fw-bold">Esposa</p>
+            <li class="list-group-item"><span class="fw-bold">Nombres:</span> {{dataRegistroCivil[0].nombres}}</li>
+            <li class="list-group-item"><span class="fw-bold">Apellido Paterno:</span> {{dataRegistroCivil[0].paterno}}
+            </li>
+            <li class="list-group-item"><span class="fw-bold">Apellido Materno:</span> {{dataRegistroCivil[0].materno}}
+            </li>
+          </div>
+          <p class="text-center mt-3 mb-1">Fecha de matrimonio: {{dataRegistroCivil[0].fechamat}}</p>
+          <p class="text-center">Folio: {{dataRegistroCivil[0].folio}}</p>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class="row mt-4 pt-4">
+    <p class="text-center fw-bold">Beneficios del matrimonio civil</p>
+    <div class="col-12 col-md-6">
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#ventaja-uno" aria-expanded="false" aria-controls="flush-collapseOne">
+              Derecho a la pensión de viudez
+            </button>
+          </h2>
+          <div id="ventaja-uno" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              Uno de los aspectos legales positivos de contraer matrimonio es la posibilidad de recibir una pensión de viudez. Para obtener este beneficio, se deben cumplir condiciones particulares, pero solo es necesario presentar el certificado de matrimonio civil, sin importar la duración de la convivencia. Además, este respaldo económico está disponible tanto para el cónyuge pensionista como para el que no lo es, proporcionando un apoyo financiero significativo para la persona que queda viuda.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#ventaja-dos" aria-expanded="false" aria-controls="flush-collapseTwo">
+              Derechos de Salud y Atención Médica
+            </button>
+          </h2>
+          <div id="ventaja-dos" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              Los cónyuges pueden beneficiarse de coberturas médicas conjuntas, lo que puede resultar en costos de atención médica más bajos y un acceso más fácil a los servicios de salud.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#ventaja-tres" aria-expanded="false" aria-controls="flush-collapseThree">
+              Derechos sucesorios
+            </button>
+          </h2>
+          <div id="ventaja-tres" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              En caso de fallecimiento de uno de los cónyuges, el matrimonio civil garantiza automáticamente derechos hereditarios para el cónyuge sobreviviente, facilitando la transmisión de bienes y propiedades.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#ventaja-cuatro" aria-expanded="false" aria-controls="flush-collapseOne">
+              Protección Legal en Caso de Divorcio
+            </button>
+          </h2>
+          <div id="ventaja-cuatro" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              En caso de disolución del matrimonio, el proceso de divorcio proporciona un marco legal para la distribución de bienes y la determinación de responsabilidades, lo que puede brindar una mayor seguridad jurídica.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#ventaja-cinco" aria-expanded="false" aria-controls="flush-collapseTwo">
+              Facilita la Adopción
+            </button>
+          </h2>
+          <div id="ventaja-cinco" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              Las parejas casadas a menudo encuentran más fácil el proceso de adopción en comparación con parejas no casadas, ya que el matrimonio proporciona un ambiente familiar reconocido legalmente.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#ventaja-seis" aria-expanded="false" aria-controls="flush-collapseThree">
+              Derechos de Paternidad y Maternidad
+            </button>
+          </h2>
+          <div id="ventaja-seis" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              El matrimonio civil otorga automáticamente derechos de paternidad o maternidad a ambos cónyuges sobre los hijos nacidos durante el matrimonio, brindando estabilidad y reconocimiento legal a la familia.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

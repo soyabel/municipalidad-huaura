@@ -1,0 +1,29 @@
+<main class="container main-auth">
+  <div class="row ">
+    <div class="col-12 mb-3 d-flex justify-content-end">
+      <button type="button" class="btn btn-danger" (click)="cerrarSession()">Cerrar Session</button>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <img src="assets/img/nacimiento.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text-center fw-bold">Datos personales</h5>
+      <ul class="list-group list-group-flush">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <li class="list-group-item"><span class="fw-bold">Nombres: </span>{{dataNacimiento[0].nombres}}</li>
+            <li class="list-group-item"><span class="fw-bold">Apellido Paterno: </span>{{dataNacimiento[0].paterno}}</li>
+            <li class="list-group-item"><span class="fw-bold">Apellido Materno: </span>{{dataNacimiento[0].materno}}</li>
+          </div>
+          <div class="col-12 col-md-6 mt-2 mt-md-0">
+            <li class="list-group-item"><span class="fw-bold">Sexo: </span>{{dataNacimiento[0].sexo}}</li>
+            <li class="list-group-item"><span class="fw-bold">Fecha de nacimiento: </span>{{dataNacimiento[0].fechanac}}</li>
+            <li class="list-group-item"><span class="fw-bold">Folio: </span>{{dataNacimiento[0].folio}}</li>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</main>
+
+

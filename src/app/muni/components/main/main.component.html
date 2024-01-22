@@ -1,0 +1,52 @@
+<main class="container-fluid  main-servicios">
+  <h2 class="text-center pb-4 titulo">Servicios en Línea</h2>
+  <div class="row mb-4 pt-2 g-4">
+    <div class="col-lg-4 col-md-6 col-sm-6 col-6 col-md" data-bs-toggle="modal" data-bs-target="#modaltributomuni">
+      <div class="bg-white p-3 d-flex  flex-column align-items-center custom-border">
+        <img src="assets/img/predio.png" alt="Descripción de la imagen 1" class="img-fluid imagen">
+        <h3 class="servicio-titulo text-center m-0">Tributo Municipalidad</h3>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 col-6" data-bs-toggle="modal" data-bs-target="#modalServicioInfraccion">
+      <div class="bg-white p-3 d-flex flex-column align-items-center custom-border">
+        <img src="assets/img/papeleta-de-infraccion.png" alt="Descripción de la imagen 2" class="img-fluid imagen ">
+        <h3 class="servicio-titulo text-center m-0">Papeleta de infracción</h3>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 col-6" (click)="redireccionMesaDeParte()">
+      <div class="bg-white p-3 d-flex flex-column align-items-center custom-border">
+        <img src="assets/img/mesa-de-parte.png" alt="Descripción de la imagen 3" class="img-fluid imagen">
+        <h3 class="servicio-titulo text-center m-0">Mesa de Parte</h3>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 col-6" (click)="redireccionSisgedo()">
+      <div class="bg-white p-3 d-flex flex-column align-items-center custom-border">
+        <img src="assets/img/sisgedo.png" alt="Descripción de la imagen 4" class="img-fluid imagen">
+        <h3 class="servicio-titulo text-center m-0">SISGEDO</h3>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 col-6" data-bs-toggle="modal" data-bs-target="#modalRegistroCivil">
+      <div class="bg-white p-3 d-flex flex-column align-items-center custom-border">
+        <img src="assets/img/registro-civil.png" alt="Descripción de la imagen 5" class="img-fluid imagen">
+        <h3 class="servicio-titulo text-center m-0">Registro Civil</h3>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 col-6" (click)="redireccionNoticias()">
+      <div class="bg-white p-3 d-flex flex-column align-items-center custom-border">
+        <img src="assets/img/noticias.png" alt="Descripción de la imagen 6" class="img-fluid imagen">
+        <h3 class="servicio-titulo text-center m-0">Noticias</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal tributo municipal -->
+  <hero-tributomuni></hero-tributomuni>
+  <!-- Modal tributo municipal end -->
+
+  <!-- Modal papeleta infraccion-->
+  <hero-papeletainfra></hero-papeletainfra>
+  <!--Modal papeleta infraccion end-->
+
+  <muni-registrocivil></muni-registrocivil>
+
+</main>

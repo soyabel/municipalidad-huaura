@@ -1,0 +1,39 @@
+<div class="modal fade" id="modalRegistroCivil" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-header d-flex justify-content-between align-items-center py-0">
+        <img src="assets/img/munilogo.png" alt="Municipalidad" class="mx-auto">
+      </div>
+      <div class="modal-body row">
+        <p class="text-center fw-bold">Registro Civil</p>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-6 "  data-bs-target="#modalNacimiento" data-bs-toggle="modal" data-bs-dismiss="modal">
+          <div class="bg-white p-3 d-flex flex-column align-items-center custom-border">
+            <img src="assets/img/predios.png" alt="Descripción de la imagen 3" class="img-fluid imagen">
+            <h3 class="servicio-titulo text-center m-0">Nacimiento</h3>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-6" data-bs-target="#modalMatrimonio" data-bs-toggle="modal" data-bs-dismiss="modal">
+          <div class="bg-white p-3 d-flex flex-column align-items-center custom-border">
+            <img src="assets/img/arbitrios.png" alt="Descripción de la imagen 3" class="img-fluid imagen">
+            <h3 class="servicio-titulo text-center m-0">Matrimonio</h3>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12" data-bs-target="#modalDefuncion" data-bs-toggle="modal" data-bs-dismiss="modal">
+          <div class="bg-white p-3 d-flex flex-column align-items-center custom-border  mt-3 mt-lg-0">
+            <img src="assets/img/fraccionamiento.png" alt="Descripción de la imagen 3" class="img-fluid imagen">
+            <h3 class="servicio-titulo text-center m-0">Defunción</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal seleccionado options -->
+<muni-matrimonio></muni-matrimonio>
+<muni-nacimiento></muni-nacimiento>
+<muni-defuncion></muni-defuncion>
+<!-- Modal seleccionado options end -->

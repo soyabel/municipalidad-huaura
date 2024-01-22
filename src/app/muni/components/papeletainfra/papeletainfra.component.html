@@ -1,0 +1,38 @@
+<!-- modal options -->
+<div class="modal fade" id="modalServicioInfraccion" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-header d-flex justify-content-between align-items-center py-0">
+        <img src="assets/img/munilogo.png" alt="Municipalidad" class="mx-auto">
+      </div>
+      <div class="modal-body row">
+        <p class="text-center fw-bold">Consulta tus infracciones</p>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 " data-bs-target="#modalpapeletadni" data-bs-toggle="modal"
+          data-bs-dismiss="modal">
+          <div class="bg-white p-3 d-flex flex-column align-items-center custom-border">
+            <img src="assets/img/dni.png" alt="Descripción de la imagen 3" class="img-fluid">
+            <h3 class="servicio-titulo text-center m-0">DNI</h3>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6" data-bs-target="#modalpapeletaplaca" data-bs-toggle="modal"
+          data-bs-dismiss="modal">
+          <div class="bg-white p-3 d-flex flex-column align-items-center custom-border">
+            <img src="assets/img/placa.png" alt="Descripción de la imagen 3" class="img-fluid">
+            <h3 class="servicio-titulo text-center m-0">PLACA</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal options end-->
+<!-- Modal seleccionado options -->
+
+<muni-papeletadni></muni-papeletadni>
+<muni-papeletaplaca></muni-papeletaplaca>
+
+<!-- Modal seleccionado options end -->

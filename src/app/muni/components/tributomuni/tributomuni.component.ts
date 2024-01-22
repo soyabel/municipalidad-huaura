@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'hero-tributomuni',
+  selector: 'muni-tributomuni',
   templateUrl: './tributomuni.component.html',
   styles: [
   ]

@@ -4,7 +4,7 @@ import { Component} from '@angular/core';
 
 
 @Component({
-  selector: 'hero-papeletainfra',
+  selector: 'muni-papeletainfra',
   templateUrl: './papeletainfra.component.html',
   styles: [
   ]

@@ -21,7 +21,7 @@ import { PapeletaplacaComponent } from './components/papeletaplaca/papeletaplaca
 import { MatrimonioComponent } from './components/matrimonio/matrimonio.component';
 import { NacimientoComponent } from './components/nacimineto/nacimiento.component';
 import { DefuncionComponent } from './components/defuncion/defuncion.component';
-import { CaptchaComponent } from './components/captcha/captcha.component';
+
 
 
 
@@ -45,7 +45,6 @@ import { CaptchaComponent } from './components/captcha/captcha.component';
     MatrimonioComponent,
     NacimientoComponent,
     DefuncionComponent,
-    CaptchaComponent,
   ],
   imports: [
     CommonModule,

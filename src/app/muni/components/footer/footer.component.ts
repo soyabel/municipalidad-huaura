@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'hero-footer',
+  selector: 'muni-footer',
   templateUrl: './footer.component.html',
   styles: [
   ]

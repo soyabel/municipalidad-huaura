@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'hero-slider',
+  selector: 'muni-slider',
   templateUrl: './slider.component.html',
   styles: [
   ]

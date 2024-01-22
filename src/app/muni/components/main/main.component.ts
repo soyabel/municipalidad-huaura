@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'hero-main',
+  selector: 'muni-main',
   templateUrl: './main.component.html',
   styles: []
 })

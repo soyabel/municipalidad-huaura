@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Fraccionamiento } from 'src/app/auth/interfaces/Fraccionamiento';
 import { ConstMuniService } from '../../services/constMuni.service';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { Contribuyente } from '../../interfaces/Contribuyente';
 
 @Component({
@@ -11,47 +11,59 @@ import { Contribuyente } from '../../interfaces/Contribuyente';
   styles: [
   ]
 })
-export class FraccionamientoPageComponent implements OnInit{
-  dataFracci: Fraccionamiento[]=[];
-  contriUser: Contribuyente[]=[];
+export class FraccionamientoPageComponent implements OnInit {
+  dataFracci: Fraccionamiento[] = [];
+  contriUser: Contribuyente[] = [];
   searchTerm: string = '';
   filteredData: any;
-  constructor(private router: Router,private authService:AuthService){
-
+  constructor(private router: Router,
+    private authService: AuthService,
+    private renderer: Renderer2) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.renderer.removeClass(document.body, 'modal-open');
+        this.renderer.setStyle(document.body, 'overflow', 'auto');
+        this.renderer.setStyle(document.body, 'padding-right', '0px');
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+          backdrop.parentNode?.removeChild(backdrop);
+        }
+      }
+    });
   }
   ngOnInit(): void {
     this.dataFracci = this.authService.getDataFraccionmamiento();
-    this.contriUser=this.authService.getDataContribuyenteFraccionamiento();
+    this.contriUser = this.authService.getDataContribuyenteFraccionamiento();
     this.filterData();
   }
 
-  totalInsoluto():number{
-    let total= this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.vdeuda, 0);
+  totalInsoluto(): number {
+    let total = this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.vdeuda, 0);
     return parseFloat(total.toFixed(2));
   }
 
-  totalDEmision():number{
-    let total= this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.vderemi, 0);
+  totalDEmision(): number {
+    let total = this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.vderemi, 0);
     return parseFloat(total.toFixed(2));
   }
 
-  totalIntereses():number{
-    let total= this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.vinte, 0);
+  totalIntereses(): number {
+    let total = this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.vinte, 0);
     return parseFloat(total.toFixed(2));
   }
 
-  totalDeuda():number{
-    let total= this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.votros, 0);
+  totalDeuda(): number {
+    let total = this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.votros, 0);
     return parseFloat(total.toFixed(2));
   }
 
-  totalAmnistia():number{
-    let total= this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.vtotalamn, 0);
+  totalAmnistia(): number {
+    let total = this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.vtotalamn, 0);
     return parseFloat(total.toFixed(2));
   }
 
 
-  cerrarSession():void{
+  cerrarSession(): void {
     this.authService.clearLocalStorageData(ConstMuniService.FRACCIONAMIENTO_KEY);
     this.authService.clearLocalStorageData(ConstMuniService.FRACCIONAMIENTOUSER_KEY);
     this.router.navigate(['/servicios']);

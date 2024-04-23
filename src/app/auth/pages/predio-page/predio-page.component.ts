@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Renderer2 } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 import { Predio } from 'src/app/auth/interfaces/Predio';
 import { AuthService } from '../../services/auth.service';
 import { ConstMuniService } from '../../services/constMuni.service';
@@ -16,8 +16,21 @@ export class PredioPageComponent implements OnInit{
   contriUser: Contribuyente[]=[];
   searchTerm: string = '';
   filteredData: any;
-  constructor(private router: Router,private authService:AuthService){
-
+  constructor(
+    private router: Router,
+    private authService:AuthService,
+    private renderer: Renderer2){
+      router.events.subscribe(event => {
+        if (event instanceof NavigationStart) {
+          this.renderer.removeClass(document.body, 'modal-open');
+          this.renderer.setStyle(document.body, 'overflow', 'auto');
+          this.renderer.setStyle(document.body, 'padding-right', '0px');
+          const backdrop = document.querySelector('.modal-backdrop');
+          if (backdrop) {
+            backdrop.parentNode?.removeChild(backdrop);
+          }
+        }
+      });
   }
   ngOnInit(): void {
     this.dataPredio = this.authService.getDataPredio();

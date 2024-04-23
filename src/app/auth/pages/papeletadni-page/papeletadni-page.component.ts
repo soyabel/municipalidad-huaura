@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Renderer2 } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 import { InfraccionDni } from 'src/app/auth/interfaces/InfraccionDni';
 import { Propietario } from 'src/app/auth/interfaces/Propietario';
 
@@ -22,8 +22,21 @@ export class PapeletadniPageComponent implements OnInit {
   totalSaldo: number = 0;
   constructor(
     private router: Router,
-    private muniService: AuthService
-    ) { }
+    private muniService: AuthService,
+    private renderer: Renderer2
+    ) {
+      router.events.subscribe(event => {
+        if (event instanceof NavigationStart) {
+          this.renderer.removeClass(document.body, 'modal-open');
+          this.renderer.setStyle(document.body, 'overflow', 'auto');
+          this.renderer.setStyle(document.body, 'padding-right', '0px');
+          const backdrop = document.querySelector('.modal-backdrop');
+          if (backdrop) {
+            backdrop.parentNode?.removeChild(backdrop);
+          }
+        }
+      });
+     }
 
 
 

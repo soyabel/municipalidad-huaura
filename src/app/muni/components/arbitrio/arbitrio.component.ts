@@ -1,6 +1,6 @@
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { Arbitrio } from 'src/app/auth/interfaces/Arbitrio';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { catchError, forkJoin, of, tap } from 'rxjs';
@@ -43,6 +43,17 @@ export class ArbitrioComponent {
   ) {
     this.arbitrioForm = this.fb.group({
       arbitrio: ['', Validators.required],
+    });
+    router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.renderer.removeClass(document.body, 'modal-open');
+        this.renderer.setStyle(document.body, 'overflow', 'auto');
+        this.renderer.setStyle(document.body, 'padding-right', '0px');
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+          backdrop.parentNode?.removeChild(backdrop);
+        }
+      }
     });
   }
 

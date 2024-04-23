@@ -11,6 +11,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ConstMuniService } from './services/constMuni.service';
 import { NacimientoPageComponent } from './pages/nacimiento-page/nacimiento-page.component';
 import { DefuncionPageComponent } from './pages/defuncion-page/defuncion-page.component';
+import { TransportePageComponent } from './pages/transporte-page/transporte-page.component';
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'predio', component: PredioPageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.PREDIOS_KEY} },
       { path: 'arbitrio', component: ArbitrioPageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.ARBITRIO_KEY}},
       { path: 'fraccionamiento', component: FraccionamientoPageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.FRACCIONAMIENTO_KEY}},
+      { path: 'transporte', component: TransportePageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.TRANSPORTE_KEY}},
     ]
   },
   { path: '**', redirectTo: '/servicios' },

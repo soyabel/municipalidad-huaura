@@ -22,4 +22,8 @@ export class FooterComponent {
   redireccionYoutube() {
     window.open('https://www.youtube.com/channel/UCMgzp1c8PPfRjG5PB6lXUjA/featured', '_blank');
   }
+
+  getCurrentYear(): number {
+    return new Date().getFullYear();
+  }
 }

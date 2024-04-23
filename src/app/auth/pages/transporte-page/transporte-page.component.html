@@ -1,0 +1,41 @@
+<main class="container main-auth">
+  <div class="row ">
+    <div class="col-12 mb-3 d-flex justify-content-end">
+      <button type="button" class="btn btn-danger" (click)="cerrarSession()">Cerrar Session</button>
+    </div>
+  </div>
+  <div>
+   <h4 class="text-center fw-bold pb-4 titulo-color">TRANSPORTE</h4>
+  </div>
+  <div class="row">
+      <div class="col-12 col-md-6">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><span class="fw-bold">N° PADRON:</span> {{dataTransporte[0].nro_padron}}</li>
+          <li class="list-group-item"><span class="fw-bold">DNI/RUC:</span> {{dataTransporte[0].num_doc_identidad}}</li>
+          <li class="list-group-item"><span class="fw-bold">PRODIETARIO:</span> {{dataTransporte[0].propietario}}</li>
+          <li class="list-group-item"><span class="fw-bold">MODELO:</span> {{dataTransporte[0].modelo}}</li>
+          <li class="list-group-item"><span class="fw-bold">PLACA ACTUAL:</span> {{dataTransporte[0].placa_actual}}</li>
+          <li class="list-group-item"><span class="fw-bold">FECHA DE PADRON:</span> {{dataTransporte[0].fecha_padron}}</li>
+          <li class="list-group-item"><span class="fw-bold">CLASE:</span> {{dataTransporte[0].clase}}</li>
+          <li class="list-group-item"><span class="fw-bold">MARCA:</span> {{dataTransporte[0].marca}}</li>
+          <li class="list-group-item"><span class="fw-bold">COLOR:</span> {{dataTransporte[0].color}}</li>
+          <li class="list-group-item"><span class="fw-bold">ESTADO:</span> {{dataTransporte[0].estado}}</li>
+          <li class="list-group-item"><span class="fw-bold">DIAS VENCIDOS:</span> {{dataProcedimiento[0].dias_vencidos}}</li>
+          <li class="list-group-item"><span class="fw-bold">EMPRESA:</span> {{dataProcedimiento[0].empresa}}</li>
+          <li class="list-group-item"><span class="fw-bold">ESTADO:</span> {{dataProcedimiento[0].estado}}</li>
+          <li class="list-group-item"><span class="fw-bold">FECHA ININCIO:</span> {{dataProcedimiento[0].fecha_inicio}}</li>
+          <li class="list-group-item"><span class="fw-bold">ID VEHICULO:</span> {{dataProcedimiento[0].id_vehiculo_autorizacion}}</li>
+          <li class="list-group-item"><span class="fw-bold">N° TARJETA:</span> {{dataProcedimiento[0].nro_tarjeta}}</li>
+          <li class="list-group-item"><span class="fw-bold">SERVICIO</span> {{dataProcedimiento[0].servicio}}</li>
+          <li class="list-group-item"><span class="fw-bold">TARJETA:</span> {{dataProcedimiento[0].tarjeta}}</li>
+          <li class="list-group-item"><span class="fw-bold">TRAMITE:</span> {{dataProcedimiento[0].tramite}}</li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6 pb-4 pb-sm-0 d-flex justify-content-center">
+        <img src="assets/img/transporte-info.png" class="img-fluid img-informacion" alt="...">
+      </div>
+  </div>
+
+  <h4 class="text-center mb-5 fw-bold px-0 mt-3">¡ Ahora también para dispositivos android !</h4>
+  <muni-sidecom></muni-sidecom>
+</main>

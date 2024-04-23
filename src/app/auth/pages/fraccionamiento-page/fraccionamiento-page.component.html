@@ -17,8 +17,11 @@
           <div class="col-6 py-4">
               <p class="my-1"><span class="fw-bold">N° DOC: </span>{{ contriUser[0].conpa}}</p>
               <p class="my-1"><span class="fw-bold">NOMBRE: </span>{{ contriUser[0].nomb}}</p>
-              <p class="my-1"><span class="fw-bold">TOTAL DEUDA: </span>S/29.72</p>
-              <p class="my-1"><span class="fw-bold">DERECHO EMISIÓN: </span>S/19.80</p>
+              <p class="my-1"><span class="fw-bold">INSOLUTO: </span>S/{{totalInsoluto()}}</p>
+              <p class="my-1"><span class="fw-bold">DERECHO DE EMISIÓN: </span>S/{{totalDEmision()}}</p>
+              <p class="my-1"><span class="fw-bold">INTERESES: </span>S/{{totalIntereses()}}</p>
+              <p class="my-1"><span class="fw-bold">TOTAL DEUDA: </span>S/{{totalDeuda()}}</p>
+              <p class="my-1"><span class="fw-bold">TOTAL AMNISTÍA: </span>S/{{totalAmnistia()}}</p>
           </div>
         </div>
       </div>
@@ -50,7 +53,8 @@
     </div>
 
   </div>
-  <div class="mt-4">
+ <div class="row mt-4">
+  <div class="col-12 col-lg-7">
     <div class="mb-3 contenedor-table">
 
       <div class="input-group mb-3 ">
@@ -63,20 +67,26 @@
           <thead>
             <tr>
               <th class="bg-primary text-white">Año</th>
-              <th class="bg-primary text-white">Periodo</th>
-              <th class="bg-primary text-white">Resivo</th>
-              <th class="bg-primary text-white">Deuda</th>
-              <th class="bg-primary text-white">Total</th>
+                <th class="bg-primary text-white">Arbitrio</th>
+                <th class="bg-primary text-white">Cuota</th>
+                <th class="bg-primary text-white">Insoluto</th>
+                <th class="bg-primary text-white">D. Emis</th>
+                <th class="bg-primary text-white">Sobretasas</th>
+                <th class="bg-primary text-white">Amnistia</th>
+                <th class="bg-primary text-white">Total</th>
             </tr>
           </thead>
           <tbody>
             <tr
               *ngFor="let fraccionamiento of filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage); let i = index">
               <td>{{ fraccionamiento.aini }}</td>
-              <td>{{ fraccionamiento.peini }}</td>
-              <td>{{ fraccionamiento.recibo }}</td>
-              <td>{{ fraccionamiento.vdeuda}}</td>
-              <td>{{ fraccionamiento.vderemi}}</td>
+                <td>{{ fraccionamiento.tran }}</td>
+                <td>{{ fraccionamiento.peini }}</td>
+                <td>S/{{ fraccionamiento.vdeuda }}</td>
+                <td>S/{{ fraccionamiento.vderemi }}</td>
+                <td>S/{{ fraccionamiento.vinte }}</td>
+                <td>S/{{ fraccionamiento.vtotalamn }}</td>
+                <td>S/{{ fraccionamiento.votros }}</td>
             </tr>
           </tbody>
         </table>
@@ -95,5 +105,12 @@
 
     </div>
   </div>
+  <div class="col-12 col-lg-5 d-flex justify-content-center mt-4 mt-lg-0">
+    <img src="assets/img/transporte-info.png" class="img-fluid img-informacion" alt="tributo-muni">
+  </div>
+ </div>
+
+ <h4 class="text-center mb-5 fw-bold px-0 mt-5">¡ Ahora también para dispositivos android !</h4>
+  <muni-sidecom></muni-sidecom>
 </main>
 

@@ -13,4 +13,6 @@ export class ConstMuniService {
   public static readonly ARBITRIOUSER_KEY         = 'arbitrioUserKey';
   public static readonly FRACCIONAMIENTO_KEY      = 'fraccionamientoKey';
   public static readonly FRACCIONAMIENTOUSER_KEY  = 'fraccionamientoUserKey';
+  public static readonly TRANSPORTE_KEY           = 'transporteKey';
+  public static readonly PROCEDIMIENTO_KEY        = 'procedimientoKey';
 }

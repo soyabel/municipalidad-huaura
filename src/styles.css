@@ -298,7 +298,13 @@ font-family:'Franklin Gothic Medium'
 }
 
 
-
+.titulo-tienda{
+  font-size: 2rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+  border-top: 2px solid white;
+}
 
 
 
@@ -343,9 +349,52 @@ canvas {
   color: #ffffff !important;
   font-weight: bold !important;
  }
+
  .input-formulario::placeholder{
   text-align: center;
   color: #ffffff !important;
  }
 
+ .app-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
+ }
+ .app-container-servicios{
+  background-color: var(--color-primario);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+ }
+
+ .footer-componente{
+  margin-top: auto;
+ }
+
+
+.img-google {
+  max-width: 280px;
+  max-height: 86px;
+  transition: transform 0.3s; /* Transición suave del efecto */
+}
+
+.img-google:hover {
+  transform: scale(1.05); /* Escala al 110% del tamaño original al pasar el mouse */
+  cursor: pointer;
+}
+
+.sidecom-logo{
+  max-width: 230px;
+  max-height: 66px;
+}
+
+.img-sidecom-app{
+  max-height: 476px;
+  max-width: 666px;
+}
+
+.img-informacion{
+  max-width: 281px;
+  max-height: 550px;
+}

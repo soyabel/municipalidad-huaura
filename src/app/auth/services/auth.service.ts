@@ -14,6 +14,8 @@ import { Predio } from '../interfaces/Predio';
 import { Contribuyente } from '../interfaces/Contribuyente';
 import { Nacimiento } from '../interfaces/Nacimiento';
 import { Defuncion } from '../interfaces/Defuncion';
+import { Transporte } from '../interfaces/Transporte';
+import { Procedimiento } from '../interfaces/Procedimiento';
 
 
 @Injectable({providedIn: 'root'})
@@ -25,6 +27,7 @@ export class AuthService {
 
   private infraccionDni: InfraccionDni[] = [];
   private infraccionePlaca: InfraccionPlaca[] = [];
+  private transporte: Transporte[] = [];
   private matrimonio: Matrimonio[] = [];
   private nacimiento: Nacimiento[] = [];
   private defuncion: Defuncion[] = [];
@@ -34,6 +37,7 @@ export class AuthService {
   private contribuyentePredio: Contribuyente[] = [];
   private contribuyenteArbitrio: Contribuyente[] = [];
   private contribuyenteFraccinamiento: Contribuyente[] = [];
+  private procedimiento: Procedimiento[] = [];
 
   constructor(private httpClient: HttpClient, private localStorageService: LocalStorageService)
    {
@@ -48,6 +52,8 @@ export class AuthService {
      this.contribuyentePredio         =   this.getStoredContribuyentePredio();
      this.contribuyenteArbitrio       =   this.getStoredContribuyenteArbitrio();
      this.contribuyenteFraccinamiento =   this.getStoredContribuyenteFraccionamiento();
+     this.transporte                  =   this.getStoredTransporte();
+     this.procedimiento               =   this.getStoredProcedimiento();
    }
 
 // ---------------------DNI-------------------
@@ -112,6 +118,66 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
   }
 
   // ----------------------PLACA END---------------------
+
+  // ----------------------TRANSPORTE---------------------
+
+  searchTransporte(term: string):Observable<Transporte[]>{
+    const url = `${this.apiUrl}/Sigave/GetAllPadron/${term}`;
+    return this.httpClient.get<Transporte[]>(url).pipe(
+      tap((response) => {
+        this.storeTransporte(response);
+
+      }),
+      catchError(() => {
+        this.storeTransporte([]); // Almacenar un array vacío en caso de error
+        return of([]);
+      })
+    );
+  }
+
+  private storeTransporte(transporte: Transporte[]): void {
+    this.transporte = transporte;
+    this.localStorageService.set(ConstMuniService.TRANSPORTE_KEY, transporte);
+  }
+
+  private getStoredTransporte(): Transporte[] {
+    return this.localStorageService.get<Transporte[]>(ConstMuniService.TRANSPORTE_KEY) || [];
+  }
+
+
+  getDataTransporte(): Transporte[] {
+    return this.transporte;
+  }
+
+  searchProcedimiento(term: string):Observable<Procedimiento[]>{
+    const url = `${this.apiUrl}/Sigave/GetAllProcedimiento/${term}`;
+    return this.httpClient.get<Procedimiento[]>(url).pipe(
+      tap((response) => {
+        this.storeProcedimiento(response);
+
+      }),
+      catchError(() => {
+        this.storeProcedimiento([]); // Almacenar un array vacío en caso de error
+        return of([]);
+      })
+    );
+  }
+
+  private storeProcedimiento(procedimiento: Procedimiento[]): void {
+    this.procedimiento = procedimiento;
+    this.localStorageService.set(ConstMuniService.PROCEDIMIENTO_KEY, procedimiento);
+  }
+
+  private getStoredProcedimiento(): Procedimiento[] {
+    return this.localStorageService.get<Procedimiento[]>(ConstMuniService.PROCEDIMIENTO_KEY) || [];
+  }
+
+
+  getDataProcedimiento(): Procedimiento[] {
+    return this.procedimiento;
+  }
+
+  // ----------------------TRANSPORTE END---------------------
 
     // --------------------REGISTRO CIVIL-----------------
     searchMatrimonio(nomb: string,apep:string,apem:string,tesp:string):Observable<Matrimonio[]>{

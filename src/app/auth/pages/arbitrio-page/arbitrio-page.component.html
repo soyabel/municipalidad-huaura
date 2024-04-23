@@ -6,8 +6,8 @@
       </button>
     </div>
     <div class="row">
+      <h4 class="text-center fw-bold pb-4">DATOS PERSONALES</h4>
       <div class="col-lg-6">
-        <p class="text-center fw-bold">DATOS PERSONALES</p>
         <div class="row">
           <div class="col-6 pt-3">
             <div class="d-flex justify-content-end px-4">
@@ -17,15 +17,19 @@
           <div class="col-6 py-4">
               <p class="my-1"><span class="fw-bold">N° DOC: </span>{{ contriArbitrio[0].conpa}}</p>
               <p class="my-1"><span class="fw-bold">NOMBRE: </span>{{ contriArbitrio[0].nomb}}</p>
-              <p class="my-1"><span class="fw-bold">TOTAL DEUDA: </span>S/29.72</p>
-              <p class="my-1"><span class="fw-bold">DERECHO EMISIÓN: </span>S/19.80</p>
+              <p class="my-1"><span class="fw-bold">INSOLUTO: </span>S/{{totalInsoluto()}}</p>
+              <p class="my-1"><span class="fw-bold">DERECHO DE EMISIÓN: </span>S/{{totalDEmision()}}</p>
+              <p class="my-1"><span class="fw-bold">INTERESES: </span>S/{{totalIntereses()}}</p>
+              <p class="my-1"><span class="fw-bold">TOTAL DEUDA: </span>S/{{totalDeuda()}}</p>
+              <p class="my-1"><span class="fw-bold">TOTAL AMNISTÍA: </span>S/{{totalAmnistia()}}</p>
           </div>
         </div>
       </div>
       <div class="col-lg-6 px-0 ocultar-anuncio">
         <p class="fw-bold denuncia-ya text-danger text-center fw-bolder">¡ COMPROMISO CONTRA LA CORRUPCIÓN !</p>
         <p class="mb-0 ">
-          La <span class="fw-bold">Municipalidad de Huara</span> refuerza su compromiso anticorrupción con medidas preventivas y correctivas.
+          La <span class="fw-bold">Municipalidad de Huara</span> refuerza su compromiso anticorrupción con medidas
+          preventivas y correctivas.
           Priorizamos
           transparencia, honestidad y rendición de cuentas en nuestra administración para servir a la comunidad.
           Trabajamos
@@ -39,8 +43,8 @@
           </div>
           <div class="col-9 pt-4">
             <p class="mb-1 fw-bold">Ministerio Publico Distrito Fiscal Huaura</p>
-            <p><span class="fw-bold">Telefono: </span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">
+            <p><span class="fw-bold">Telefono: </span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                fill="currentColor" class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
                   d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z" />
               </svg> (01) 2323632</p>
@@ -48,53 +52,101 @@
         </div>
       </div>
     </div>
-
   </div>
-  <div class="mt-4">
-    <div class="contenedor-table mb-4">
 
-      <div class="input-group mb-2 ">
-        <span class="input-group-text bg-primary text-white fw-bold" id="basic-addon1"> Buscar </span>
-        <input type="text" class="form-control border-3" [(ngModel)]="searchTerm" placeholder="Término de búsqueda"
-          aria-label="Término de búsqueda" aria-describedby="basic-addon1" (input)="filterData()" (click)="onInputClick()" (focus)="onInputFocus()">
+  <div class="row mt-4">
+    <div class="col-12 col-lg-7">
+      <div class="contenedor-table mb-4">
+
+        <div class="input-group mb-2 ">
+          <span class="input-group-text bg-primary text-white fw-bold" id="basic-addon1"> Buscar </span>
+          <input type="text" class="form-control border-3" [(ngModel)]="searchTerm" placeholder="Término de búsqueda"
+            aria-label="Término de búsqueda" aria-describedby="basic-addon1" (input)="filterData()" (click)="onInputClick()" (focus)="onInputFocus()">
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th class="bg-primary text-white">Arbitrio</th>
+                <th class="bg-primary text-white">Año</th>
+                <th class="bg-primary text-white">Predio</th>
+                <th class="bg-primary text-white"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let arbitrio of filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage); let i = index">
+                <td>{{ arbitrio.tran }}</td>
+                <td>{{ arbitrio.aini }}</td>
+                <td>{{ arbitrio.secid }}</td>
+                <td class="d-flex justify-content-center"><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detalles" (click)="masDetalles((currentPage - 1) * itemsPerPage + i)">Detalles</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
       </div>
-      <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover">
-          <thead>
-            <tr>
-              <th class="bg-primary text-white">Año</th>
-              <th class="bg-primary text-white">Periodo</th>
-              <th class="bg-primary text-white">Resivo</th>
-              <th class="bg-primary text-white">Deuda</th>
-              <th class="bg-primary text-white">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              *ngFor="let arbitrio of filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage); let i = index">
-              <td>{{ arbitrio.aini }}</td>
-              <td>{{ arbitrio.peini }}</td>
-              <td>{{ arbitrio.recibo }}</td>
-              <td>{{ arbitrio.vdeuda}}</td>
-              <td>{{ arbitrio.vderemi}}</td>
-            </tr>
-          </tbody>
-        </table>
+
+      <div class="pb-3 overflow-auto">
+        <nav class="Page navigation example">
+          <ul class="pagination pb-0 mb-0">
+            <li class="page-item item-pagination" *ngFor="let page of pages" [class.active]="page === currentPage">
+              <a class="page-link" (click)="setCurrentPage(page)">{{ page }}</a>
+            </li>
+          </ul>
+        </nav>
 
       </div>
-
     </div>
-
-    <div class="pb-3 overflow-auto">
-      <nav class="Page navigation example">
-        <ul class="pagination pb-0 mb-0">
-          <li class="page-item item-pagination" *ngFor="let page of pages" [class.active]="page === currentPage">
-            <a class="page-link" (click)="setCurrentPage(page)">{{ page }}</a>
-          </li>
-        </ul>
-      </nav>
-
+    <div class="col-12 col-lg-5 d-flex justify-content-center mt-4 mt-lg-0">
+      <img src="assets/img/transporte-info.png" class="img-fluid img-informacion" alt="tributo-muni">
     </div>
   </div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="detalles" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-header d-flex justify-content-between align-items-center py-0">
+        <img src="assets/img/munilogo.png" alt="Municipalidad" class="mx-auto">
+      </div>
+      <div class="modal-body">
+        <h4 class="text-center fw-bold">{{tituloDetalles}}</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th class="bg-primary text-white">Cuota</th>
+                <th class="bg-primary text-white">Insoluto</th>
+                <th class="bg-primary text-white">D. Emis</th>
+                <th class="bg-primary text-white">Sobretasas</th>
+                <th class="bg-primary text-white">Amnistia</th>
+                <th class="bg-primary text-white">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detalle of detalles">
+                <td>{{ detalle.peini }}</td>
+                <td>S/{{ detalle.vdeuda }}</td>
+                <td>S/{{ detalle.vderemi }}</td>
+                <td>S/{{ detalle.vinte }}</td>
+                <td>S/{{ detalle.vtotalamn }}</td>
+                <td>S/{{ detalle.votros }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h4 class="text-center mb-5 fw-bold px-0 mt-3">¡ Ahora también para dispositivos android !</h4>
+<muni-sidecom></muni-sidecom>
 </main>
 

@@ -24,6 +24,32 @@ export class PredioPageComponent implements OnInit{
     this.contriUser=this.authService.getDataContribuyentePredio();
     this.filterData();
   }
+
+  totalInsoluto():number{
+    let total= this.dataPredio.reduce((acc: number, predio: any) => acc + predio.vdeuda, 0);
+    return parseFloat(total.toFixed(2));
+  }
+
+  totalDEmision():number{
+    let total= this.dataPredio.reduce((acc: number, predio: any) => acc + predio.vderemi, 0);
+    return parseFloat(total.toFixed(2));
+  }
+
+  totalIntereses():number{
+    let total= this.dataPredio.reduce((acc: number, predio: any) => acc + predio.vinte, 0);
+    return parseFloat(total.toFixed(2));
+  }
+
+  totalDeuda():number{
+    let total= this.dataPredio.reduce((acc: number, predio: any) => acc + predio.votros, 0);
+    return parseFloat(total.toFixed(2));
+  }
+
+  totalAmnistia():number{
+    let total= this.dataPredio.reduce((acc: number, predio: any) => acc + predio.vtotalamn, 0);
+    return parseFloat(total.toFixed(2));
+  }
+
   cerrarSession():void{
     this.authService.clearLocalStorageData(ConstMuniService.PREDIOS_KEY);
     this.authService.clearLocalStorageData(ConstMuniService.PREDIOSUSER_KEY);

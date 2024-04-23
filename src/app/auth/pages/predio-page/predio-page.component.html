@@ -17,8 +17,11 @@
           <div class="col-6 py-4">
               <p class="my-1"><span class="fw-bold">N° DOC: </span>{{ contriUser[0].conpa}}</p>
               <p class="my-1"><span class="fw-bold">NOMBRE: </span>{{ contriUser[0].nomb}}</p>
-              <p class="my-1"><span class="fw-bold">TOTAL DEUDA: </span>S/29.72</p>
-              <p class="my-1"><span class="fw-bold">DERECHO EMISIÓN: </span>S/19.80</p>
+              <p class="my-1"><span class="fw-bold">INSOLUTO: </span>{{totalInsoluto()}}</p>
+              <p class="my-1"><span class="fw-bold">DERECHO DE EMISIÓN: </span>{{totalDEmision()}}</p>
+              <p class="my-1"><span class="fw-bold">INTERESES: </span>{{totalIntereses()}}</p>
+              <p class="my-1"><span class="fw-bold">TOTAL DEUDA: </span>{{totalDeuda()}}</p>
+              <p class="my-1"><span class="fw-bold">TOTAL AMNISTÍA: </span>{{totalAmnistia()}}</p>
           </div>
         </div>
       </div>
@@ -50,50 +53,66 @@
     </div>
 
   </div>
-  <div class="mt-4">
-    <div class="mb-3 contenedor-table">
+  <div class="row pt-5">
+    <div class="col-12">
+      <div class="mb-3 contenedor-table">
 
-      <div class="input-group mb-3 ">
-        <span class="input-group-text bg-primary text-white fw-bold" id="basic-addon1"> Buscar </span>
-        <input type="text" class="form-control border-3" [(ngModel)]="searchTerm" placeholder="Término de búsqueda"
-          aria-label="Término de búsqueda" aria-describedby="basic-addon1" (input)="filterData()" (click)="onInputClick()" (focus)="onInputFocus()">
+        <div class="input-group mb-3 ">
+          <span class="input-group-text bg-primary text-white fw-bold" id="basic-addon1"> Buscar </span>
+          <input type="text" class="form-control border-3" [(ngModel)]="searchTerm" placeholder="Término de búsqueda"
+            aria-label="Término de búsqueda" aria-describedby="basic-addon1" (input)="filterData()" (click)="onInputClick()" (focus)="onInputFocus()">
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th class="bg-primary text-white">Año</th>
+                <th class="bg-primary text-white">Arbitrio</th>
+                <th class="bg-primary text-white">Cuota</th>
+                <th class="bg-primary text-white">Insoluto</th>
+                <th class="bg-primary text-white">D. Emis</th>
+                <th class="bg-primary text-white">Sobretasas</th>
+                <th class="bg-primary text-white">Amnistia</th>
+                <th class="bg-primary text-white">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let predio of filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage); let i = index">
+                <td>{{ predio.aini }}</td>
+                <td>{{ predio.tran }}</td>
+                <td>{{ predio.peini }}</td>
+                <td>S/{{ predio.vdeuda }}</td>
+                <td>S/{{ predio.vderemi }}</td>
+                <td>S/{{ predio.vinte }}</td>
+                <td>S/{{ predio.vtotalamn }}</td>
+                <td>S/{{ predio.votros }}</td>
+
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
       </div>
-      <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover">
-          <thead>
-            <tr>
-              <th class="bg-primary text-white">Año</th>
-              <th class="bg-primary text-white">Periodo</th>
-              <th class="bg-primary text-white">Resivo</th>
-              <th class="bg-primary text-white">Deuda</th>
-              <th class="bg-primary text-white">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              *ngFor="let predio of filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage); let i = index">
-              <td>{{ predio.aini }}</td>
-              <td>{{ predio.peini }}</td>
-              <td>{{ predio.recibo }}</td>
-              <td>{{ predio.vdeuda}}</td>
-              <td>{{ predio.vderemi}}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="pb-3 overflow-auto">
+        <nav class="Page navigation example">
+          <ul class="pagination pb-0 mb-0">
+            <li class="page-item item-pagination" *ngFor="let page of pages" [class.active]="page === currentPage">
+              <a class="page-link" (click)="setCurrentPage(page)">{{ page }}</a>
+            </li>
+          </ul>
+        </nav>
 
       </div>
 
     </div>
-    <div class="pb-3 overflow-auto">
-      <nav class="Page navigation example">
-        <ul class="pagination pb-0 mb-0">
-          <li class="page-item item-pagination" *ngFor="let page of pages" [class.active]="page === currentPage">
-            <a class="page-link" (click)="setCurrentPage(page)">{{ page }}</a>
-          </li>
-        </ul>
-      </nav>
-
-    </div>
-
+    <!-- <div class="col-12 col-lg-5 d-flex justify-content-center mt-4 mt-lg-0">
+      <img src="assets/img/transporte-info.png" class="img-fluid" alt="tributo-muni">
+    </div> -->
   </div>
+
+
+  <h4 class="text-center mb-5 fw-bold px-0 mt-3">¡ Ahora también para dispositivos android !</h4>
+  <muni-sidecom></muni-sidecom>
 </main>

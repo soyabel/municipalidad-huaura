@@ -21,6 +21,8 @@ import { PapeletaplacaComponent } from './components/papeletaplaca/papeletaplaca
 import { MatrimonioComponent } from './components/matrimonio/matrimonio.component';
 import { NacimientoComponent } from './components/nacimineto/nacimiento.component';
 import { DefuncionComponent } from './components/defuncion/defuncion.component';
+import { TransporteComponent } from './components/transporte/transporte.component';
+import { SidecomComponent } from './components/sidecom/sidecom.component';
 
 
 
@@ -45,6 +47,8 @@ import { DefuncionComponent } from './components/defuncion/defuncion.component';
     MatrimonioComponent,
     NacimientoComponent,
     DefuncionComponent,
+    TransporteComponent,
+    SidecomComponent,
   ],
   imports: [
     CommonModule,
@@ -57,7 +61,7 @@ import { DefuncionComponent } from './components/defuncion/defuncion.component';
   exports:[
     NavComponent,
     FooterComponent,
-
+    SidecomComponent,
   ],
 
 })

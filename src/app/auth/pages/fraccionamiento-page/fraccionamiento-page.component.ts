@@ -24,6 +24,33 @@ export class FraccionamientoPageComponent implements OnInit{
     this.contriUser=this.authService.getDataContribuyenteFraccionamiento();
     this.filterData();
   }
+
+  totalInsoluto():number{
+    let total= this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.vdeuda, 0);
+    return parseFloat(total.toFixed(2));
+  }
+
+  totalDEmision():number{
+    let total= this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.vderemi, 0);
+    return parseFloat(total.toFixed(2));
+  }
+
+  totalIntereses():number{
+    let total= this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.vinte, 0);
+    return parseFloat(total.toFixed(2));
+  }
+
+  totalDeuda():number{
+    let total= this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.votros, 0);
+    return parseFloat(total.toFixed(2));
+  }
+
+  totalAmnistia():number{
+    let total= this.dataFracci.reduce((acc: number, fraccionamiento: any) => acc + fraccionamiento.vtotalamn, 0);
+    return parseFloat(total.toFixed(2));
+  }
+
+
   cerrarSession():void{
     this.authService.clearLocalStorageData(ConstMuniService.FRACCIONAMIENTO_KEY);
     this.authService.clearLocalStorageData(ConstMuniService.FRACCIONAMIENTOUSER_KEY);

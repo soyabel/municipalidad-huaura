@@ -15,5 +15,8 @@ export class MainComponent {
   redireccionSisgedo() {
     window.open('http://sisgedo2.munihuacho.gob.pe/sisgedonew/app/main.php', '_blank');
   }
+  redireccionSidecom() {
+    window.open('http://www.google.com', '_blank');
+  }
 }
 

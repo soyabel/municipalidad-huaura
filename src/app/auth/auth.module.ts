@@ -15,6 +15,7 @@ import { FraccionamientoPageComponent } from './pages/fraccionamiento-page/fracc
 import { ConstMuniService } from './services/constMuni.service';
 import { DefuncionPageComponent } from './pages/defuncion-page/defuncion-page.component';
 import { NacimientoPageComponent } from './pages/nacimiento-page/nacimiento-page.component';
+import { TransportePageComponent } from './pages/transporte-page/transporte-page.component';
 
 
 
@@ -30,6 +31,7 @@ import { NacimientoPageComponent } from './pages/nacimiento-page/nacimiento-page
     FraccionamientoPageComponent,
     DefuncionPageComponent,
     NacimientoPageComponent,
+    TransportePageComponent,
 
   ],
   imports: [

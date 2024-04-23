@@ -1,7 +1,7 @@
 <main class="container-fluid  main-servicios">
-  <h2 class="text-center pb-4 titulo">Servicios en Línea</h2>
+  <h2 class="text-center pb-4 mt-5 fw-bold text-white">Servicios en Línea</h2>
   <div class="row mb-4 pt-2 g-4">
-    <div class="col-lg-4 col-md-6 col-sm-6 col-6 col-md" data-bs-toggle="modal" data-bs-target="#modaltributomuni">
+    <div class="col-lg-4 col-md-6 col-sm-6 col-6 " data-bs-toggle="modal" data-bs-target="#modaltributomuni">
       <div class="bg-white p-3 d-flex  flex-column align-items-center custom-border">
         <img src="assets/img/predio.png" alt="Descripción de la imagen 1" class="img-fluid imagen">
         <h3 class="servicio-titulo text-center m-0">Tributo Municipalidad</h3>
@@ -19,10 +19,10 @@
         <h3 class="servicio-titulo text-center m-0">Mesa de Parte</h3>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-6 col-6" (click)="redireccionSisgedo()">
+    <div class="col-lg-4 col-md-6 col-sm-6 col-6" data-bs-toggle="modal" data-bs-target="#modaltransporte">
       <div class="bg-white p-3 d-flex flex-column align-items-center custom-border">
-        <img src="assets/img/sisgedo.png" alt="Descripción de la imagen 4" class="img-fluid imagen">
-        <h3 class="servicio-titulo text-center m-0">SISGEDO</h3>
+        <img src="assets/img/vehiculo.png" alt="Descripción de la imagen 4" class="img-fluid imagen">
+        <h3 class="servicio-titulo text-center m-0">Transporte</h3>
       </div>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6 col-6" data-bs-toggle="modal" data-bs-target="#modalRegistroCivil">
@@ -31,10 +31,10 @@
         <h3 class="servicio-titulo text-center m-0">Registro Civil</h3>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-6 col-6" (click)="redireccionNoticias()">
+    <div class="col-lg-4 col-md-6 col-sm-6 col-6" (click)="redireccionSisgedo()">
       <div class="bg-white p-3 d-flex flex-column align-items-center custom-border">
         <img src="assets/img/noticias.png" alt="Descripción de la imagen 6" class="img-fluid imagen">
-        <h3 class="servicio-titulo text-center m-0">Noticias</h3>
+        <h3 class="servicio-titulo text-center m-0">SISGEDO</h3>
       </div>
     </div>
   </div>
@@ -47,6 +47,10 @@
   <muni-papeletainfra></muni-papeletainfra>
   <!--Modal papeleta infraccion end-->
 
+  <muni-transporte></muni-transporte>
+
   <muni-registrocivil></muni-registrocivil>
+  <h4 class="text-center mb-5 fw-bold titulo-tienda text-white px-0">¡ Ahora también para dispositivos android !</h4>
+  <muni-sidecom></muni-sidecom>
 
 </main>

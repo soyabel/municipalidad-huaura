@@ -1,7 +1,10 @@
+@import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+
 :root {
   --color-primario: #3da5e2;
   --color-secundario: #00426a;
   --color-terciario: #ffffff;
+  --color-clima: #EC6E4C;
 }
 
 body {
@@ -10,6 +13,7 @@ body {
 
 }
 
+#map { height: 250px; width: 500px;}
 
 
 /* nav  */
@@ -398,3 +402,4 @@ canvas {
   max-width: 281px;
   max-height: 550px;
 }
+

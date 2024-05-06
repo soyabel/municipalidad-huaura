@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="row pt-5">
+    <div class="col-6 px-5">
+      <p class="text-end text-white  fw-bold fs-5  my-0">Huacho {{fechaActual}}</p>
+      <div class="d-flex justify-content-end align-items-center">
+        <img class="img-fluid" [src]="'https://openweathermap.org/img/wn/'+icono+'@2x.png'" alt="Icono del clima">
+        <span class="fw-bold fs-1 text-white">{{temp}}°C</span>
+      </div>
+      <p class="text-end text-white mb-0 fw-bold fs-5">{{descripcion}}</p>
+      <p class="text-end text-white"><span class="fw-bold">Presión atmosférica: </span> {{presionAtmosferica}}hPa <span class="fw-bold ps-3 text-clima">Humedad: </span>{{humedad}}%</p>
+    </div>
+    <div class="col-6">
+      <div class="mapa px-5" id="map"></div>
+    </div>
+  </div>
+</div>

@@ -88,7 +88,7 @@ export class PapeletadniComponent implements OnInit {
 
 
   onSubmit() {
-    if (this.userInput?.nativeElement.value === this.text) {
+    if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
 
       this.papeletadniForm.updateValueAndValidity();
       const dni = this.papeletadniForm.get('dni')?.value;

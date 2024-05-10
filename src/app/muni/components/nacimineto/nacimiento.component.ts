@@ -14,13 +14,15 @@ import { ViewportScroller } from '@angular/common';
 })
 export class NacimientoComponent implements OnInit {
   public nacimiento: Nacimiento[] = [];
-  nacimientoForm: FormGroup;
+  nacimientoForm!: FormGroup;
   isSelectClicked = false;
   showErrorAlert: boolean = false;
   showErrorAlertCaptcha: boolean = false;
   showErrorAlertCampos: boolean = false;
   loading: boolean = false;
   private text: string = '';
+  minimumLength: number = 2;
+
 
   @ViewChild('canvas', { static: true }) canvas?: ElementRef;
   @ViewChild('userInput', { static: true }) userInput?: ElementRef;
@@ -34,9 +36,10 @@ export class NacimientoComponent implements OnInit {
     private viewportScroller: ViewportScroller
   ) {
     this.nacimientoForm = this.fb.group({
-      nombre: ['', Validators.required],
-      apellidopaterno: ['', Validators.required],
-      apellidomaterno: ['', Validators.required]
+      nombre: ['',[Validators.required,Validators.minLength(2)]],
+      apellidopaterno: ['', [Validators.required,Validators.minLength(2)]],
+      apellidomaterno: ['', [Validators.required,Validators.minLength(2)]]
+
     });
 
     router.events.subscribe(event => {
@@ -53,8 +56,12 @@ export class NacimientoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.triggerFunction();
   }
+
+
+
 
   reloadCaptcha(): void {
     this.triggerFunction();
@@ -92,7 +99,7 @@ export class NacimientoComponent implements OnInit {
 
 
   onSubmit() {
-    if (this.userInput?.nativeElement.value === this.text) {
+    if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
       this.nacimientoForm.updateValueAndValidity();
       const nombre = this.nacimientoForm.get('nombre')?.value;
       const apellidopaterno = this.nacimientoForm.get('apellidopaterno')?.value;

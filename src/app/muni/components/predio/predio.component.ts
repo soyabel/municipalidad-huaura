@@ -106,7 +106,7 @@ export class PredioComponent {
 
 
   onSubmit() {
-    if (this.userInput?.nativeElement.value === this.text) {
+    if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
 
       this.predioForm.updateValueAndValidity();
       const predio = this.predioForm.get('predio')?.value;
@@ -137,7 +137,7 @@ export class PredioComponent {
         forkJoin([searchPredio$, searchContribuyente$]).subscribe(
           ([predioData, contribuyenteData]) => {
             // Verifica si ambos conjuntos de datos tienen información
-            if (predioData.length > 0 && contribuyenteData.length > 0) {
+            if (predioData.length > 0 || contribuyenteData.length > 0) {
               // Realiza la redirección sin agregar información a la URL
               this.cleanupBootstrapStyles();
               this.router.navigate(['/auth/predio']);

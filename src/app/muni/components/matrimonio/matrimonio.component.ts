@@ -34,9 +34,9 @@ export class MatrimonioComponent implements OnInit{
     private viewportScroller: ViewportScroller
   ) {
     this.matrimonioForm = this.fb.group({
-      nombre: ['', Validators.required],
-      apellidopaterno: ['', Validators.required],
-      apellidomaterno: ['', Validators.required],
+      nombre: ['', [Validators.required,Validators.minLength(2)]],
+      apellidopaterno: ['', [Validators.required,Validators.minLength(2)]],
+      apellidomaterno: ['', [Validators.required,Validators.minLength(2)]],
       opciones: ['', Validators.required]
     });
 
@@ -95,7 +95,7 @@ export class MatrimonioComponent implements OnInit{
 
   onSubmit() {
 
-    if (this.userInput?.nativeElement.value === this.text) {
+    if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
 
       this.matrimonioForm.updateValueAndValidity();
       const nombre = this.matrimonioForm.get('nombre')?.value;

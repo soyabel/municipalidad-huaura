@@ -4,6 +4,7 @@ import { Predio } from 'src/app/auth/interfaces/Predio';
 import { AuthService } from '../../services/auth.service';
 import { ConstMuniService } from '../../services/constMuni.service';
 import { Contribuyente } from '../../interfaces/Contribuyente';
+import { MetodosAuthService } from '../../services/metodos-auth.service';
 
 @Component({
   selector: 'app-predio-page',
@@ -16,10 +17,14 @@ export class PredioPageComponent implements OnInit{
   contriUser: Contribuyente[]=[];
   searchTerm: string = '';
   filteredData: any;
+  metodoAuth!: MetodosAuthService;
+  debe: boolean = false;
   constructor(
     private router: Router,
     private authService:AuthService,
+    metodoAuth: MetodosAuthService,
     private renderer: Renderer2){
+      this.metodoAuth = metodoAuth;
       router.events.subscribe(event => {
         if (event instanceof NavigationStart) {
           this.renderer.removeClass(document.body, 'modal-open');
@@ -34,6 +39,10 @@ export class PredioPageComponent implements OnInit{
   }
   ngOnInit(): void {
     this.dataPredio = this.authService.getDataPredio();
+    if (this.dataPredio.length>0) {
+      this.debe=true;
+    }
+
     this.contriUser=this.authService.getDataContribuyentePredio();
     this.filterData();
   }

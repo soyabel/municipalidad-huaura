@@ -17,18 +17,18 @@
           <div class="col-6 py-4">
               <p class="my-1"><span class="fw-bold">N° DOC: </span>{{ contriUser[0].conpa}}</p>
               <p class="my-1"><span class="fw-bold">NOMBRE: </span>{{ contriUser[0].nomb}}</p>
-              <p class="my-1"><span class="fw-bold">INSOLUTO: </span>S/{{totalInsoluto()}}</p>
-              <p class="my-1"><span class="fw-bold">DERECHO DE EMISIÓN: </span>S/{{totalDEmision()}}</p>
-              <p class="my-1"><span class="fw-bold">INTERESES: </span>S/{{totalIntereses()}}</p>
-              <p class="my-1"><span class="fw-bold">TOTAL DEUDA: </span>S/{{totalDeuda()}}</p>
-              <p class="my-1"><span class="fw-bold">TOTAL AMNISTÍA: </span>S/{{totalAmnistia()}}</p>
+              <p class="my-1"><span class="fw-bold">INSOLUTO: </span>S/{{metodoAuth.formatoMoneda(totalInsoluto())}}</p>
+              <p class="my-1"><span class="fw-bold">DERECHO DE EMISIÓN: </span>S/{{metodoAuth.formatoMoneda(totalDEmision())}}</p>
+              <p class="my-1"><span class="fw-bold">INTERESES: </span>S/{{metodoAuth.formatoMoneda(totalIntereses())}}</p>
+              <p class="my-1"><span class="fw-bold">TOTAL DEUDA: </span>S/{{metodoAuth.formatoMoneda(totalDeuda())}}</p>
+              <p class="my-1"><span class="fw-bold">TOTAL AMNISTÍA: </span>S/{{metodoAuth.formatoMoneda(totalAmnistia())}}</p>
           </div>
         </div>
       </div>
       <div class="col-lg-6 px-0 ocultar-anuncio">
         <p class="fw-bold denuncia-ya text-danger text-center fw-bolder">¡ COMPROMISO CONTRA LA CORRUPCIÓN !</p>
         <p class="mb-0 ">
-          La <span class="fw-bold">Municipalidad de Huara</span> refuerza su compromiso anticorrupción con medidas preventivas y correctivas.
+          La <span class="fw-bold">Municipalidad Provincial de Huara</span> refuerza su compromiso anticorrupción con medidas preventivas y correctivas.
           Priorizamos
           transparencia, honestidad y rendición de cuentas en nuestra administración para servir a la comunidad.
           Trabajamos
@@ -46,14 +46,22 @@
                 class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
                   d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z" />
-              </svg> (01) 2323632</p>
+              </svg> (01) 2393336</p>
           </div>
         </div>
       </div>
     </div>
 
   </div>
- <div class="row mt-4">
+
+  <div class="row pt-5 " *ngIf="!debe">
+    <h4 class="text-center fw-bold px-0 mt-3 text-check">USTED ESTÁ AL DÍA</h4>
+    <div class="col-12 d-flex justify-content-center">
+      <img class="img-fluid" src="assets/img/check.gif" alt="gif-check" style="width: 600px; height: 400px;">
+    </div>
+  </div>
+
+ <div class="row mt-4" *ngIf="debe">
   <div class="col-12 col-lg-7">
     <div class="mb-3 contenedor-table">
 
@@ -67,7 +75,6 @@
           <thead>
             <tr>
               <th class="bg-primary text-white">Año</th>
-                <th class="bg-primary text-white">Arbitrio</th>
                 <th class="bg-primary text-white">Cuota</th>
                 <th class="bg-primary text-white">Insoluto</th>
                 <th class="bg-primary text-white">D. Emis</th>
@@ -80,13 +87,12 @@
             <tr
               *ngFor="let fraccionamiento of filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage); let i = index">
               <td>{{ fraccionamiento.aini }}</td>
-                <td>{{ fraccionamiento.tran }}</td>
                 <td>{{ fraccionamiento.peini }}</td>
-                <td>S/{{ fraccionamiento.vdeuda }}</td>
-                <td>S/{{ fraccionamiento.vderemi }}</td>
-                <td>S/{{ fraccionamiento.vinte }}</td>
-                <td>S/{{ fraccionamiento.vtotalamn }}</td>
-                <td>S/{{ fraccionamiento.votros }}</td>
+                <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.vdeuda)}}</td>
+                <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.vderemi)}}</td>
+                <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.vinte)}}</td>
+                <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.vtotalamn)}}</td>
+                <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.votros)}}</td>
             </tr>
           </tbody>
         </table>
@@ -110,7 +116,7 @@
   </div>
  </div>
 
- <h4 class="text-center mb-5 fw-bold px-0 mt-5">¡ Ahora también para dispositivos android !</h4>
+ <h4 class="text-center mb-5 fw-bold px-0 mt-5">¡ Próximamente para dispositivos android !</h4>
   <muni-sidecom></muni-sidecom>
 </main>
 

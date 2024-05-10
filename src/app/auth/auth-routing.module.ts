@@ -27,9 +27,9 @@ const routes: Routes = [
       { path: 'matrimonio', component: MatrimonioPageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.MATRIMONIO_KEY } },
       { path: 'nacimiento', component: NacimientoPageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.NACIMIENTO_KEY } },
       { path: 'defuncion', component: DefuncionPageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.DEFUNCION_KEY } },
-      { path: 'predio', component: PredioPageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.PREDIOS_KEY} },
-      { path: 'arbitrio', component: ArbitrioPageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.ARBITRIO_KEY}},
-      { path: 'fraccionamiento', component: FraccionamientoPageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.FRACCIONAMIENTO_KEY}},
+      { path: 'predio', component: PredioPageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.PREDIOSUSER_KEY} },
+      { path: 'arbitrio', component: ArbitrioPageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.ARBITRIOUSER_KEY}},
+      { path: 'fraccionamiento', component: FraccionamientoPageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.FRACCIONAMIENTOUSER_KEY}},
       { path: 'transporte', component: TransportePageComponent ,canActivate: [AuthGuard], data: { 'localStorageKey': ConstMuniService.TRANSPORTE_KEY}},
     ]
   },

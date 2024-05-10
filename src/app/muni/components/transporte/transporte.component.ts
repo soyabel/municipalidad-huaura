@@ -91,7 +91,7 @@ export class TransporteComponent implements OnInit{
 
 
   onSubmit() {
-    if (this.userInput?.nativeElement.value === this.text) {
+    if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
       this.transporteForm.updateValueAndValidity();
       const transporte = this.transporteForm.get('transporte')?.value;
       if (transporte) {

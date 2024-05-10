@@ -23,7 +23,6 @@ import { NacimientoComponent } from './components/nacimineto/nacimiento.componen
 import { DefuncionComponent } from './components/defuncion/defuncion.component';
 import { TransporteComponent } from './components/transporte/transporte.component';
 import { SidecomComponent } from './components/sidecom/sidecom.component';
-import { ClimaComponent } from './components/clima/clima.component';
 
 
 
@@ -50,7 +49,6 @@ import { ClimaComponent } from './components/clima/clima.component';
     DefuncionComponent,
     TransporteComponent,
     SidecomComponent,
-    ClimaComponent,
   ],
   imports: [
     CommonModule,

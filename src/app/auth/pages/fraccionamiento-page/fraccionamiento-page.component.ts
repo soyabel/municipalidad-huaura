@@ -4,6 +4,7 @@ import { ConstMuniService } from '../../services/constMuni.service';
 import { AuthService } from '../../services/auth.service';
 import { NavigationStart, Router } from '@angular/router';
 import { Contribuyente } from '../../interfaces/Contribuyente';
+import { MetodosAuthService } from '../../services/metodos-auth.service';
 
 @Component({
   selector: 'muni-fraccionamiento-page',
@@ -16,9 +17,14 @@ export class FraccionamientoPageComponent implements OnInit {
   contriUser: Contribuyente[] = [];
   searchTerm: string = '';
   filteredData: any;
+  metodoAuth!: MetodosAuthService;
+  debe: boolean = false;
+
   constructor(private router: Router,
     private authService: AuthService,
+    metodoAuth: MetodosAuthService,
     private renderer: Renderer2) {
+    this.metodoAuth = metodoAuth;
     router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.renderer.removeClass(document.body, 'modal-open');
@@ -33,6 +39,9 @@ export class FraccionamientoPageComponent implements OnInit {
   }
   ngOnInit(): void {
     this.dataFracci = this.authService.getDataFraccionmamiento();
+    if (this.dataFracci.length>0) {
+      this.debe=true;
+    }
     this.contriUser = this.authService.getDataContribuyenteFraccionamiento();
     this.filterData();
   }

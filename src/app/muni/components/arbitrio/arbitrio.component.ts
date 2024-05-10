@@ -103,7 +103,7 @@ export class ArbitrioComponent {
   }
 
   onSubmit() {
-    if (this.userInput?.nativeElement.value === this.text) {
+    if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
       this.arbitrioForm.updateValueAndValidity();
       const arbitrio = this.arbitrioForm.get('arbitrio')?.value;
       if (arbitrio) {
@@ -132,7 +132,7 @@ export class ArbitrioComponent {
 
         forkJoin([searchArbitrio$, searchContribuyenteArbitrio$]).subscribe(
           ([arbitrioData, contribuyenteData]) => {
-            if (arbitrioData.length > 0 && contribuyenteData.length > 0) {
+            if (arbitrioData.length > 0 || contribuyenteData.length > 0) {
               this.cleanupBootstrapStyles();
               this.router.navigate(['/auth/arbitrio']);
               this.scrollToTop();

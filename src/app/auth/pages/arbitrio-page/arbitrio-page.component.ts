@@ -4,6 +4,7 @@ import { Contribuyente } from '../../interfaces/Contribuyente';
 import { NavigationStart, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ConstMuniService } from '../../services/constMuni.service';
+import { MetodosAuthService } from '../../services/metodos-auth.service';
 
 @Component({
   selector: 'app-arbitrio-page',
@@ -19,11 +20,14 @@ export class ArbitrioPageComponent implements  OnInit{
   nuevosDatos: any;
   detalles: any;
   tituloDetalles?: string;
-
+  metodoAuth!: MetodosAuthService;
+  debe: boolean = false;
   constructor(
     private router: Router,
     private authService:AuthService,
+    metodoAuth: MetodosAuthService,
     private renderer: Renderer2){
+      this.metodoAuth = metodoAuth;
       router.events.subscribe(event => {
         if (event instanceof NavigationStart) {
           this.renderer.removeClass(document.body, 'modal-open');
@@ -40,6 +44,11 @@ export class ArbitrioPageComponent implements  OnInit{
 
   ngOnInit(): void {
     this.dataArbitrio = this.authService.getDataArbitrio();
+
+    if (this.dataArbitrio.length>0) {
+      this.debe=true;
+    }
+
     this.contriArbitrio=this.authService.getDataContribuyenteArbitrio();
     this.datosconvertidos();
     this.filterData();

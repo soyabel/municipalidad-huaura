@@ -33,6 +33,7 @@ export class DefuncionPageComponent {
 
   ngOnInit(): void {
     this.dataDefuncion=this.muniService.getDataDefuncion();
+    console.log(this.dataDefuncion);
   }
 
 

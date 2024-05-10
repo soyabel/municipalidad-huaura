@@ -5,6 +5,7 @@ import { Propietario } from 'src/app/auth/interfaces/Propietario';
 
 import { AuthService } from '../../services/auth.service';
 import { ConstMuniService } from '../../services/constMuni.service';
+import { MetodosAuthService } from '../../services/metodos-auth.service';
 
 
 @Component({
@@ -20,11 +21,14 @@ export class PapeletadniPageComponent implements OnInit {
   public propietario: Propietario[] = [];
   public propietarioData: any;
   totalSaldo: number = 0;
+  metodoAuth!: MetodosAuthService;
   constructor(
     private router: Router,
     private muniService: AuthService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    metodoAuth: MetodosAuthService,
     ) {
+      this.metodoAuth = metodoAuth;
       router.events.subscribe(event => {
         if (event instanceof NavigationStart) {
           this.renderer.removeClass(document.body, 'modal-open');

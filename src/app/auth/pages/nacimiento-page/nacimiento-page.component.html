@@ -1,32 +1,34 @@
 <main class="container main-auth">
   <div class="row ">
     <div class="col-12 mb-3 d-flex justify-content-end">
-      <button type="button" class="btn btn-danger" (click)="cerrarSession()">Cerrar Session</button>
+      <button type="button" class="btn btn-danger" (click)="cerrarSession()">Finalizar consulta</button>
     </div>
   </div>
-  <div class="card mb-3">
+  <div class="card mb-3 border border-5">
     <img src="assets/img/nacimiento.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title text-center fw-bold">Datos personales</h5>
-      <ul class="list-group list-group-flush">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <li class="list-group-item"><span class="fw-bold">Nombres: </span>{{dataNacimiento[0].nombres}}</li>
-            <li class="list-group-item"><span class="fw-bold">Apellido Paterno: </span>{{dataNacimiento[0].paterno}}</li>
-            <li class="list-group-item"><span class="fw-bold">Apellido Materno: </span>{{dataNacimiento[0].materno}}</li>
-          </div>
-          <div class="col-12 col-md-6 mt-2 mt-md-0">
-            <li class="list-group-item"><span class="fw-bold">Sexo: </span>{{dataNacimiento[0].sexo}}</li>
-            <li class="list-group-item"><span class="fw-bold">Fecha de nacimiento: </span>{{dataNacimiento[0].fechanac}}</li>
-            <li class="list-group-item"><span class="fw-bold">Folio: </span>{{dataNacimiento[0].folio}}</li>
-          </div>
-        </div>
-      </ul>
-    </div>
-  </div>
+    <h5 class="card-title text-center fw-bold pt-2">Datos personales</h5>
+    <div class="card-body" style="max-height: 300px; overflow-y: auto;">
 
-  <h4 class="text-center mb-5 fw-bold px-0 mt-5">¡ Ahora también para dispositivos android !</h4>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let dataNaci of dataNacimiento;">
+                <div class="row pb-3">
+                    <div class="col-12 col-md-6">
+                        <span class="fw-bold">Nombres: </span>{{dataNaci.nombres}}<br>
+                        <span class="fw-bold">Apellido Paterno: </span>{{dataNaci.paterno}}<br>
+                        <span class="fw-bold">Apellido Materno: </span>{{dataNaci.materno}}
+                    </div>
+                    <div class="col-12 col-md-6 mt-2 mt-md-0">
+                        <span class="fw-bold">Sexo: </span>{{dataNaci.sexo}}<br>
+                        <span class="fw-bold">Fecha de nacimiento: </span>{{dataNaci.fechanac}}<br>
+                        <span class="fw-bold">Folio: </span>{{dataNaci.folio}}
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+  <h4 class="text-center mb-5 fw-bold px-0 mt-5">¡ Próximamente para dispositivos android !</h4>
   <muni-sidecom></muni-sidecom>
 </main>
-
-

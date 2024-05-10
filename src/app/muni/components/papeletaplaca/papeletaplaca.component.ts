@@ -88,7 +88,7 @@ export class PapeletaplacaComponent implements OnInit{
     }
 
     onSubmit() {
-      if (this.userInput?.nativeElement.value === this.text) {
+      if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
 
       this.papeletaplacaForm.updateValueAndValidity();
       const dni = this.papeletaplacaForm.get('placa')?.value;

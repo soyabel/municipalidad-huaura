@@ -106,7 +106,7 @@ export class FraccionamientoComponent {
 
 
   onSubmit() {
-    if (this.userInput?.nativeElement.value === this.text) {
+    if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
       this.fraccionamientoForm.updateValueAndValidity();
       const fraccionamiento = this.fraccionamientoForm.get('fraccionamiento')?.value;
 
@@ -137,7 +137,7 @@ export class FraccionamientoComponent {
         forkJoin([searchFraccionamiento$, searchContribuyenteFraccionamiento$]).subscribe(
           ([fraccionamientoData, contribuyenteFraccData]) => {
             // Verifica si ambos conjuntos de datos tienen información
-            if (fraccionamientoData.length > 0 && contribuyenteFraccData.length > 0) {
+            if (fraccionamientoData.length > 0 || contribuyenteFraccData.length > 0) {
               // Realiza la redirección sin agregar información a la URL
               this.cleanupBootstrapStyles();
               this.router.navigate(['/auth/fraccionamiento']);

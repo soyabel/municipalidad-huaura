@@ -32,6 +32,7 @@ constructor(
 
 ngOnInit(): void {
   this.dataNacimiento=this.muniService.getDataNacimiento();
+  console.log(this.dataNacimiento);
 }
 
 

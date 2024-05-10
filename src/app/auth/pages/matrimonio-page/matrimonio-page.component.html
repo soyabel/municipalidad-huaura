@@ -1,39 +1,36 @@
 <main class="container main-auth">
   <div class="row ">
     <div class="col-12 mb-3 d-flex justify-content-end">
-      <button type="button" class="btn btn-danger" (click)="cerrarSession()">Cerrar Session</button>
+      <button type="button" class="btn btn-danger" (click)="cerrarSession()">Finalizar consulta</button>
     </div>
     <h4 class="text-center fw-bold">Matrimonio Civil</h4>
   </div>
-  <div class="card mb-3">
+  <div class="card border-5 mb-3">
     <img src="assets/img/matrimonio-civil.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title text-center fw-bold">Datos personales</h5>
+    <h5 class="card-title text-center fw-bold pt-2">Datos personales</h5>
+    <div class="card-body" style="max-height: 300px; overflow-y: auto;">
       <ul class="list-group list-group-flush">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <p class="text-center fw-bold">Esposo</p>
-            <li class="list-group-item"><span class="fw-bold">Nombres: </span>{{dataRegistroCivil[0].nombresdon}}</li>
-            <li class="list-group-item"><span class="fw-bold">Apellido Paterno:</span>
-              {{dataRegistroCivil[0].paternodon}}</li>
-            <li class="list-group-item"><span class="fw-bold">Apellido Materno:</span>
-              {{dataRegistroCivil[0].maternodon}}</li>
+        <li class="list-group-item" *ngFor="let dataRegi of dataRegistroCivil;">
+          <div class="row pb-3">
+            <div class="col-12 col-md-6">
+              <span class="text-center fw-bold d-block pb-2">ESPOSO</span>
+              <span class="fw-bold">Nombres: </span>{{dataRegi.nombresdon}}<br>
+              <span class="fw-bold">Apellido Paterno: </span>{{dataRegi.paternodon}}<br>
+              <span class="fw-bold">Apellido Materno: </span>{{dataRegi.maternodon}}
+            </div>
+            <div class="col-12 col-md-6 mt-2 mt-md-0">
+              <span class="text-center d-block fw-bold pb-2">ESPOSA</span>
+              <span class="fw-bold">Sexo: </span>{{dataRegi.nombres}}<br>
+              <span class="fw-bold">Fecha de nacimiento: </span>{{dataRegi.paterno}}<br>
+              <span class="fw-bold">Folio: </span>{{dataRegi.materno}}
+            </div>
           </div>
-          <div class="col-12 col-md-6 mt-2 mt-md-0">
-            <p class="text-center fw-bold">Esposa</p>
-            <li class="list-group-item"><span class="fw-bold">Nombres:</span> {{dataRegistroCivil[0].nombres}}</li>
-            <li class="list-group-item"><span class="fw-bold">Apellido Paterno:</span> {{dataRegistroCivil[0].paterno}}
-            </li>
-            <li class="list-group-item"><span class="fw-bold">Apellido Materno:</span> {{dataRegistroCivil[0].materno}}
-            </li>
-          </div>
-          <p class="text-center mt-3 mb-1">Fecha de matrimonio: {{dataRegistroCivil[0].fechamat}}</p>
-          <p class="text-center">Folio: {{dataRegistroCivil[0].folio}}</p>
-        </div>
+          <p class="text-center mt-3 mb-1 text-muted">Fecha de matrimonio: {{dataRegi.fechamat}}</p>
+          <p class="text-center text-muted">Folio: {{dataRegi.folio}}</p>
+        </li>
       </ul>
     </div>
   </div>
-
-  <h4 class="text-center mb-5 fw-bold px-0 mt-5">¡ Ahora también para dispositivos android !</h4>
+  <h4 class="text-center mb-5 fw-bold px-0 mt-5">¡ Proximamente para dispositivos android !</h4>
   <muni-sidecom></muni-sidecom>
 </main>

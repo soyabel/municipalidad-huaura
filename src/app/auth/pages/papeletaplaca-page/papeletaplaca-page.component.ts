@@ -4,6 +4,7 @@ import { InfraccionPlaca } from 'src/app/auth/interfaces/InfraccionPlaca';
 import { Propietario } from 'src/app/auth/interfaces/Propietario';
 import { AuthService } from '../../services/auth.service';
 import { ConstMuniService } from '../../services/constMuni.service';
+import { MetodosAuthService } from '../../services/metodos-auth.service';
 
 
 
@@ -22,11 +23,14 @@ export class PapeletaplacaPageComponent implements OnInit{
   public propietario: Propietario[] = [];
   public propietarioData: any;
   totalSaldo: number = 0;
+  metodoAuth!: MetodosAuthService;
   constructor(
     private router: Router,
     private muniService: AuthService,
+    metodoAuth: MetodosAuthService,
     private renderer: Renderer2
     ) {
+      this.metodoAuth = metodoAuth;
       router.events.subscribe(event => {
         if (event instanceof NavigationStart) {
           this.renderer.removeClass(document.body, 'modal-open');
@@ -44,6 +48,7 @@ export class PapeletaplacaPageComponent implements OnInit{
 
   ngOnInit() {
     this.data = this.muniService.getDataInfraccionesPlaca();
+    console.log(this.data);
     this.filterData();
     this.calculateTotalSaldo();
   }
@@ -64,14 +69,18 @@ export class PapeletaplacaPageComponent implements OnInit{
       this.propietarioData = persona;
       this.showSpinner=false;
       if (this.propietarioData.length>0) {
-
+        console.log(this.propietarioData);
         return this.propietarioData;
+
       }else{
         this.propietarioData=[{
           "razo_soc": "No tiene reponsabilidad solidaria"
           }]
+          console.log(this.propietarioData);
         return  this.propietarioData;
+
       }
+
     });
 
   }

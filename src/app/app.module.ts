@@ -17,7 +17,7 @@ import { LocalStorageModule } from 'angular-2-local-storage';
     AppRoutingModule,
     HttpClientModule,
     LocalStorageModule.forRoot({
-      storageType: 'localStorage', // Puedes cambiar esto según tus necesidades
+      storageType: 'localStorage',
     }),
   ],
   bootstrap: [AppComponent]

@@ -33,7 +33,6 @@ constructor(
 ngOnInit(): void {
 
   this.dataRegistroCivil=this.muniService.getDataMatrimonio();
-  console.log(this.dataRegistroCivil);
 }
 
 

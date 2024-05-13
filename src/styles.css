@@ -50,6 +50,7 @@ header .menu .c3 {
   background: var(--color-primario);
   cursor: pointer;
   height: 78px;
+  transition: transform 0.3s;
 
 }
 
@@ -57,7 +58,7 @@ header .menu .c1:hover,
 header .menu .c2:hover,
 header .menu .c3:hover {
   background: var(--color-secundario);
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
 
 .icono-svg{
@@ -69,7 +70,7 @@ header .menu .c3:hover {
 /* slider  */
 
 .slider {
-  margin-top: 80px; /* Cambia el valor según sea necesario */
+  margin-top: 80px;
 }
 
 .carousel-item img {
@@ -100,9 +101,9 @@ header .menu .c3:hover {
 }
 
 .custom-border {
-  border: 1px solid #ccc; /* Personaliza el color del borde */
-  border-radius: 8px; /* Personaliza el radio de las esquinas */
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.4); /* Personaliza el sombreado */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
 }
 
 .custom-border{
@@ -111,7 +112,7 @@ header .menu .c3:hover {
 }
 
 .custom-border:hover {
-  transform: scale(1.03); /* Escala al 110% del tamaño original al pasar el mouse */
+  transform: scale(1.03);
 }
 
 .servicio-titulo{
@@ -156,9 +157,9 @@ header .menu .c3:hover {
 
  /*Modal*/
  .img-modal {
-  border: 1px solid #ccc; /* Personaliza el color del borde */
-  border-radius: 8px; /* Personaliza el radio de las esquinas */
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.4); /* Personaliza el sombreado */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
 }
 
 /* --------------------------- */
@@ -177,10 +178,6 @@ header .menu .c3:hover {
   }
 }
 
-
-/* .contenedor-table{
-  padding: 20px 150px 20px 150px;
-} */
 
 @keyframes heartbeat {
   0% {
@@ -302,6 +299,10 @@ header .menu .c3:hover {
   cursor: pointer;
 }
 
+.redes:hover{
+  transform: scale(1.05);
+}
+
 
 .titulo-codigo{
 font-family:'Franklin Gothic Medium'
@@ -385,11 +386,11 @@ canvas {
 .img-google {
   max-width: 280px;
   max-height: 86px;
-  transition: transform 0.3s; /* Transición suave del efecto */
+  transition: transform 0.3s;
 }
 
 .img-google:hover {
-  transform: scale(1.05); /* Escala al 110% del tamaño original al pasar el mouse */
+  transform: scale(1.05);
   cursor: pointer;
 }
 

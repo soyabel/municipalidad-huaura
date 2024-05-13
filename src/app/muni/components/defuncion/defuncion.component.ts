@@ -60,23 +60,22 @@ export class DefuncionComponent {
   }
 
   drawStringOnCanvas(string: string): void {
-    //accedemos al elemento del DOM asociado a la referencia de plantilla #canvas
     let ctx: CanvasRenderingContext2D = this.canvas?.nativeElement.getContext('2d');
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-    const textColor = 'white'; // Cambiar a color blanco o el color deseado
-    const fontFamily = 'Franklin Gothic Medium'; // Cambiar a la fuente deseada
-    const fontSize = 20; // Cambiar al tamaño de fuente deseado
+    const textColor = 'white';
+    const fontFamily = 'Franklin Gothic Medium';
+    const fontSize = 20;
 
     ctx.fillStyle = textColor;
     ctx.font = `${fontSize}px ${fontFamily}`;
 
     const totalWidth = ctx.measureText(string).width;
-    const xInitialSpace = (115 - totalWidth) / 2; // Centra el texto en el canvas
+    const xInitialSpace = (115 - totalWidth) / 2;
 
     for (let i = 0; i < string.length; i++) {
       const xPosition = xInitialSpace + ctx.measureText(string.substring(0, i)).width;
-      const yPosition = 25; // Ajusta la posición vertical según tu preferencia
+      const yPosition = 25;
       ctx.fillText(string[i], xPosition, yPosition);
     }
   }
@@ -134,15 +133,10 @@ export class DefuncionComponent {
 
     }
 
-
-
-
-
   }
 
 
   private cleanupBootstrapStyles() {
-    // Elimina las clases y estilos de Bootstrap del body
     this.renderer.removeClass(document.body, 'modal-open');
     this.renderer.setStyle(document.body, 'overflow', 'auto');
     this.renderer.setStyle(document.body, 'padding-right', '0px');

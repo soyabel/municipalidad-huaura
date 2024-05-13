@@ -64,7 +64,7 @@ searchDni(term: string):Observable<InfraccionDni[]>{
       this.storeInfraccionesDni(response);
     }),
     catchError(() => {
-      this.storeInfraccionesDni([]); // Almacenar un array vacío en caso de error
+      this.storeInfraccionesDni([]);
       return of([]);
     })
   );
@@ -97,7 +97,7 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
 
       }),
       catchError(() => {
-        this.storeInfraccionesPlaca([]); // Almacenar un array vacío en caso de error
+        this.storeInfraccionesPlaca([]);
         return of([]);
       })
     );
@@ -129,7 +129,7 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
 
       }),
       catchError(() => {
-        this.storeTransporte([]); // Almacenar un array vacío en caso de error
+        this.storeTransporte([]);
         return of([]);
       })
     );
@@ -157,7 +157,7 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
 
       }),
       catchError(() => {
-        this.storeProcedimiento([]); // Almacenar un array vacío en caso de error
+        this.storeProcedimiento([]);
         return of([]);
       })
     );
@@ -187,7 +187,7 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
           this.storeMatrimonio(response);
         }),
         catchError(() => {
-          this.storeMatrimonio([]); // Almacenar un array vacío en caso de error
+          this.storeMatrimonio([]);
           return of([]);
         })
       );
@@ -214,7 +214,7 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
           this.storeNacimiento(response);
         }),
         catchError(() => {
-          this.storeNacimiento([]); // Almacenar un array vacío en caso de error
+          this.storeNacimiento([]);
           return of([]);
         })
       );
@@ -242,7 +242,7 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
           this.storeDefuncion(response);
         }),
         catchError(() => {
-          this.storeDefuncion([]); // Almacenar un array vacío en caso de error
+          this.storeDefuncion([]);
           return of([]);
         })
       );
@@ -272,7 +272,7 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
 
         }),
         catchError(() => {
-          this.storePredio([]); // Almacenar un array vacío en caso de error
+          this.storePredio([]);
           return of([]);
         })
       );
@@ -299,7 +299,7 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
 
         }),
         catchError(() => {
-          this.storeContribuyentePredio([]); // Almacenar un array vacío en caso de error
+          this.storeContribuyentePredio([]);
           return of([]);
         })
       );
@@ -330,7 +330,7 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
           this.storeArbitrio(response);
         }),
         catchError(() => {
-          this.storeArbitrio([]); // Almacenar un array vacío en caso de error
+          this.storeArbitrio([]);
           return of([]);
         })
       );
@@ -357,7 +357,7 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
 
         }),
         catchError(() => {
-          this.storeContribuyenteArbitrio([]); // Almacenar un array vacío en caso de error
+          this.storeContribuyenteArbitrio([]);
           return of([]);
         })
       );
@@ -387,7 +387,7 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
           this.storeFraccionmamiento(response);
         }),
         catchError(() => {
-          this.storeFraccionmamiento([]); // Almacenar un array vacío en caso de error
+          this.storeFraccionmamiento([]);
           return of([]);
         })
       );
@@ -414,7 +414,7 @@ getRecordsInfraccionesDni(): InfraccionDni[] {
 
         }),
         catchError(() => {
-          this.storeContribuyenteFraccionamiento([]); // Almacenar un array vacío en caso de error
+          this.storeContribuyenteFraccionamiento([]);
           return of([]);
         })
       );

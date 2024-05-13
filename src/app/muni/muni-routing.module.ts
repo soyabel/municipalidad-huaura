@@ -5,7 +5,7 @@ import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 
 
 
-// localhost:4200/heroes
+// localhost:4200/munihuaura
 const routes: Routes = [
   {
     path: '',

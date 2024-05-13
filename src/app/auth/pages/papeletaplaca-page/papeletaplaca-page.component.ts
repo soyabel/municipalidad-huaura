@@ -48,7 +48,6 @@ export class PapeletaplacaPageComponent implements OnInit{
 
   ngOnInit() {
     this.data = this.muniService.getDataInfraccionesPlaca();
-    console.log(this.data);
     this.filterData();
     this.calculateTotalSaldo();
   }
@@ -69,14 +68,12 @@ export class PapeletaplacaPageComponent implements OnInit{
       this.propietarioData = persona;
       this.showSpinner=false;
       if (this.propietarioData.length>0) {
-        console.log(this.propietarioData);
         return this.propietarioData;
 
       }else{
         this.propietarioData=[{
           "razo_soc": "No tiene reponsabilidad solidaria"
           }]
-          console.log(this.propietarioData);
         return  this.propietarioData;
 
       }

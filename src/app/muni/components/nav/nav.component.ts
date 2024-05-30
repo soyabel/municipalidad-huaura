@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'muni-nav',
@@ -8,9 +9,12 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
 
-  redireccionTransparencia() {
-    window.open('https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=12122#.YaD89tBBw3s', '_blank');
+  constructor(private router: Router) {}
+
+  navegarPortalWeb() {
+    this.router.navigate(['/servicios/portalweb']);
   }
+
 
   redireccionTramites() {
     window.open('https://www.gob.pe/institucion/munihuaura/tramites-y-servicios', '_blank');

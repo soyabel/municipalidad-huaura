@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 })
 export class SidecomComponent {
   redireccionSidecom() {
-    window.open('http://www.google.com', '_blank');
+    window.open('https://play.google.com/store/apps/details?id=com.munihuacho.mphh', '_blank');
   }
 }

@@ -23,6 +23,8 @@ import { NacimientoComponent } from './components/nacimineto/nacimiento.componen
 import { DefuncionComponent } from './components/defuncion/defuncion.component';
 import { TransporteComponent } from './components/transporte/transporte.component';
 import { SidecomComponent } from './components/sidecom/sidecom.component';
+import { LayoutPortalWebPageComponent } from './pages/layout-portal-web-page/layout-portal-web-page.component';
+import { PortalWebPageComponent } from './pages/portal-web-page/portal-web-page.component';
 
 
 
@@ -49,6 +51,8 @@ import { SidecomComponent } from './components/sidecom/sidecom.component';
     DefuncionComponent,
     TransporteComponent,
     SidecomComponent,
+    LayoutPortalWebPageComponent,
+    PortalWebPageComponent,
   ],
   imports: [
     CommonModule,

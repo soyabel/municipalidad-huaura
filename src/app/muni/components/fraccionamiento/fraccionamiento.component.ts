@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Fraccionamiento } from '../../../auth/interfaces/Fraccionamiento';
 import { NavigationStart, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { catchError, forkJoin, of, tap } from 'rxjs';
+import { Subject, catchError, forkJoin, of, takeUntil, tap } from 'rxjs';
 import { Contribuyente } from 'src/app/auth/interfaces/Contribuyente';
 import { DataGenerationService } from '../../services/data-generation.service';
 import { ViewportScroller } from '@angular/common';
@@ -22,7 +22,7 @@ export class FraccionamientoComponent {
   showErrorAlertCaptcha: boolean = false;
   showErrorAlertCampos: boolean = false;
   loading: boolean = false;
-
+  private destroy$ = new Subject<void>();
   private text: string = '';
 
   @ViewChild('canvas', { static: true }) canvas?: ElementRef;
@@ -56,6 +56,11 @@ export class FraccionamientoComponent {
         }
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   reloadCaptcha(): void {
@@ -133,7 +138,10 @@ export class FraccionamientoComponent {
           })
         );
 
-        forkJoin([searchFraccionamiento$, searchContribuyenteFraccionamiento$]).subscribe(
+        forkJoin([searchFraccionamiento$, searchContribuyenteFraccionamiento$])
+        .pipe(
+          takeUntil(this.destroy$)
+        ).subscribe(
           ([fraccionamientoData, contribuyenteFraccData]) => {
             if (fraccionamientoData.length > 0 || contribuyenteFraccData.length > 0) {
               this.cleanupBootstrapStyles();
@@ -169,6 +177,11 @@ export class FraccionamientoComponent {
 
   }
 
+closeModal(): void {
+  this.destroy$.next();
+  this.cleanupBootstrapStyles();
+  this.loading = false;
+}
 
   private cleanupBootstrapStyles() {
     this.renderer.removeClass(document.body, 'modal-open');

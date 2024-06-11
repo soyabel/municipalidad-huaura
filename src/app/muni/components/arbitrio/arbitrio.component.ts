@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavigationStart, Router } from '@angular/router';
 import { Arbitrio } from 'src/app/auth/interfaces/Arbitrio';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { catchError, forkJoin, of, tap } from 'rxjs';
+import { Subject, catchError, forkJoin, of, takeUntil, tap } from 'rxjs';
 import { Contribuyente } from 'src/app/auth/interfaces/Contribuyente';
 import { DataGenerationService } from '../../services/data-generation.service';
 import { ViewportScroller } from '@angular/common';
@@ -16,6 +16,7 @@ import { ViewportScroller } from '@angular/common';
   ]
 })
 export class ArbitrioComponent {
+  private destroy$ = new Subject<void>();
   arbitrioForm: FormGroup;
   public arbitrio: Arbitrio[] = [];
   public contribuyenteArbitrio: Contribuyente[] = [];
@@ -55,6 +56,12 @@ export class ArbitrioComponent {
         }
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.loading=false;
   }
 
   reloadCaptcha(): void {
@@ -128,7 +135,11 @@ export class ArbitrioComponent {
           })
         );
 
-        forkJoin([searchArbitrio$, searchContribuyenteArbitrio$]).subscribe(
+        forkJoin([searchArbitrio$, searchContribuyenteArbitrio$])
+        .pipe(
+          takeUntil(this.destroy$)
+        )
+        .subscribe(
           ([arbitrioData, contribuyenteData]) => {
             if (arbitrioData.length > 0 || contribuyenteData.length > 0) {
               this.cleanupBootstrapStyles();
@@ -162,6 +173,13 @@ export class ArbitrioComponent {
 
 
   }
+
+
+closeModal(): void {
+  this.destroy$.next();
+  this.cleanupBootstrapStyles();
+  this.loading = false;
+}
 
   private cleanupBootstrapStyles() {
     this.renderer.removeClass(document.body, 'modal-open');

@@ -12,7 +12,7 @@ export class NavComponent {
   constructor(private router: Router) {}
 
   navegarPortalWeb() {
-    this.router.navigate(['/servicios/portalweb']);
+    this.router.navigate(['/portalweb/noticias']);
   }
 
 

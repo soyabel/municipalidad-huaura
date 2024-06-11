@@ -21,10 +21,6 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'portalweb',
-    component: PortalWebPageComponent
-  },
-  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full',

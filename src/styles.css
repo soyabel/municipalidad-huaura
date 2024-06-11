@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import 'ngx-toastr/toastr';
 
 :root {
   --color-primario: #3da5e2;
   --color-secundario: #00426a;
   --color-terciario: #ffffff;
   --color-clima: #EC6E4C;
+  --color-portalwebtext: #6C757D;
 }
 
 body {
@@ -129,8 +132,11 @@ header .menu .c3:hover {
 /* footer */
 .footer-muni{
   padding-top: 100px;
-  background: var(--color-secundario);
+
   color: var(--color-terciario);
+}
+.bg-footer-sidecom{
+  background: var(--color-secundario);
 }
 .titulo-footer-principal{
   font-size: 18px;
@@ -423,4 +429,199 @@ iframe {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+/*--------portalweb-----------*/
+
+/*gaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+.contenedor-main-portalweb{
+  background-color: var(--color-terciario);
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  color: var(--color-portalwebtext);
+}
+
+.espacio-icon{
+  padding-left: 10px;
+}
+
+.box-ciudad{
+  padding-left: 400px;
+  padding-right: 400px;
+}
+
+.titulo-portalweb{
+  padding-bottom: 10px;
+  border-bottom: 2px solid #0e2238;
+}
+
+@media (max-width: 1600px) {
+  .box-ciudad {
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .box-ciudad {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+}
+
+@media (max-width: 1240px) {
+  .box-ciudad {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media (max-width: 1040px) {
+  .box-ciudad {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 940px) {
+  .box-ciudad {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+@media (max-width: 880px) {
+  .box-ciudad {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+/* aqui */
+/* end aqui */
+
+
+.bg-tabla{
+  background-color: var(--color-secundario) !important;
+}
+
+
+.pie-img{
+  background: rgb(0,66,106);
+background: linear-gradient(90deg, rgba(31,85,116,1) 24%, rgba(61,165,226,1) 72%);
+}
+
+
+
+
+.image-overlay {
+  position: relative;
+}
+
+.image-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 66, 106, 0.90); /* El último valor es la opacidad (0.7) */
+  z-index: 1; /* Para asegurarse de que la superposición esté por encima de la imagen pero debajo del texto */
+}
+
+.position-absolute {
+  z-index: 2;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+  display: inline-block;
+}
+
+
+.cursor-pointer:hover {
+  transform: scale(1.2) rotate(360deg);
+
+}
+
+/* tu-componente.component.css */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none; /* Inicialmente oculto */
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+
+}
+
+#scrollToTopBtn.show {
+  display: block; /* Mostrar cuando es necesario */
+}
+
+#scrollToTopBtn:hover{
+  transform: scale(1.2)
+}
+.only-cursor{
+  cursor: pointer;
+}
+
+
+
+
+
+.dropdown:hover>.dropdown-menu,
+.dropend:hover>.dropdown-menu {
+  display: block;
+  margin-top: .125em;
+}
+
+.bg-portalweb-ul{
+background-color: #3da5e2;
+}
+@media screen and (max-width: 699px) {
+
+  .dropdown:hover>.dropdown-menu,
+  .dropend:hover>.dropdown-menu {
+
+    margin-left: .125em;
+  }
+}
+
+@media (min-width: 991px) {
+  .dropend:hover>.dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: .125em;
+  }
+}
+
+nav,
+.offcanvas {
+  background-color: #3da5e2;
+}
+
+.dropdown-item{
+  color: #ffffff;
+}
+
+.dropdown-item:hover{
+  background-color: #68B5F1;
+  color: #ffffff;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav>li:hover {
+    background-color: #0dcaf0;
+  }
 }

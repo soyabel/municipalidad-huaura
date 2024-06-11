@@ -5,7 +5,7 @@ import { DataGenerationService } from '../../services/data-generation.service';
 import { NavigationStart, Router } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import { Transporte } from 'src/app/auth/interfaces/Transporte';
-import { catchError, forkJoin, of, tap } from 'rxjs';
+import { Subject, Subscription, catchError, forkJoin, of, takeUntil, tap } from 'rxjs';
 import { Procedimiento } from 'src/app/auth/interfaces/Procedimiento';
 
 @Component({
@@ -23,13 +23,12 @@ export class TransporteComponent implements OnInit{
   showErrorAlertCampos: boolean = false;
   loading: boolean = false;
   private text: string = '';
+  private destroy$ = new Subject<void>();
 
   @ViewChild('canvas', { static: true }) canvas?: ElementRef;
   @ViewChild('userInput', { static: true }) userInput?: ElementRef;
 
-  ngOnInit(): void {
-    this.triggerFunction();
-  }
+
 
   constructor(
     private authService: AuthService,
@@ -54,6 +53,14 @@ export class TransporteComponent implements OnInit{
         }
       }
     });
+  }
+
+  ngOnInit(): void {
+    this.triggerFunction();
+  }
+  ngOnDestroy(): void {
+    this.destroy$.next(); // Emite un valor para finalizar todas las suscripciones
+    this.destroy$.complete(); // Completar el Subject
   }
 
   reloadCaptcha(): void {
@@ -116,7 +123,10 @@ export class TransporteComponent implements OnInit{
           })
         );
 
-        forkJoin([searchTransporte$, searchProcedimiento$]).subscribe(
+       forkJoin([searchTransporte$, searchProcedimiento$])
+        .pipe(
+          takeUntil(this.destroy$) // Cancela la suscripción cuando se emite un valor en el destroy$
+        ).subscribe(
           ([transporteData, procedimientoData]) => {
             if (transporteData.length > 0 && procedimientoData.length > 0) {
               this.cleanupBootstrapStyles();
@@ -151,6 +161,12 @@ export class TransporteComponent implements OnInit{
 
   }
 
+// Método para limpiar el componente y cancelar la suscripción
+closeModal(): void {
+  this.destroy$.next(); // Emitir un valor para cancelar la suscripción
+  this.cleanupBootstrapStyles(); // Limpiar estilos
+  this.loading = false; // Restablecer el estado de carga
+}
 
 
   private cleanupBootstrapStyles() {
@@ -170,4 +186,5 @@ export class TransporteComponent implements OnInit{
   private scrollToTop(): void {
     this.viewportScroller.scrollToPosition([0, 0]);
   }
+
 }

@@ -9,6 +9,10 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule ),
   },
   {
+    path: 'portalweb',
+    loadChildren: () => import('./portalweb/portalweb.module').then( m => m.PortalwebModule ),
+  },
+  {
     path: 'servicios',
     loadChildren: () => import('./muni/muni.module').then( m => m.MuniModule ),
   },

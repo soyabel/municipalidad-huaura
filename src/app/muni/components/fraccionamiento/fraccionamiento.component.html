@@ -1,9 +1,9 @@
 <div class="modal fade" id="modalFraccionamiento" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
-  tabindex="-1">
+  tabindex="-1" (hidden.bs.modal)="closeModal()">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+    <div class="modal-content pb-4">
       <div class="d-flex justify-content-end">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
       </div>
       <div class="modal-header d-flex justify-content-between align-items-center py-0">
         <img src="assets/img/munilogo.png" alt="Municipalidad" class="mx-auto">
@@ -116,10 +116,6 @@
 
         </div>
       </form>
-      <div class="modal-footer">
-        <button class="btn btn-warning" data-bs-target="#modaltributomuni" data-bs-toggle="modal"
-          data-bs-dismiss="modal">Regresar</button>
-      </div>
     </div>
   </div>
 </div>

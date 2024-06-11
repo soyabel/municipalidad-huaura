@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { InfraccionDni } from 'src/app/auth/interfaces/InfraccionDni';
 import { DataGenerationService } from '../../services/data-generation.service';
 import { ViewportScroller } from '@angular/common';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'muni-papeletadni',
@@ -13,6 +14,7 @@ import { ViewportScroller } from '@angular/common';
   ]
 })
 export class PapeletadniComponent implements OnInit {
+  private destroy$ = new Subject<void>();
   papeletadniForm: FormGroup;
   public infraccionDni: InfraccionDni[] = [];
   showErrorAlert: boolean = false;
@@ -51,6 +53,12 @@ export class PapeletadniComponent implements OnInit {
         }
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.loading=false;
   }
 
   reloadCaptcha(): void {
@@ -96,7 +104,9 @@ export class PapeletadniComponent implements OnInit {
 
         this.loading = true;
 
-        this.muniService.searchDni(dni).subscribe((persona) => {
+        this.muniService.searchDni(dni)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((persona) => {
           this.infraccionDni = persona;
 
           if (this.infraccionDni.length > 0) {
@@ -135,6 +145,11 @@ export class PapeletadniComponent implements OnInit {
 
   }
 
+  closeModal(): void {
+    this.destroy$.next();
+    this.cleanupBootstrapStyles();
+    this.loading=false;
+  }
 
 
   private cleanupBootstrapStyles() {

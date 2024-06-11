@@ -5,6 +5,7 @@ import { Matrimonio } from 'src/app/auth/interfaces/Matrimonio';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DataGenerationService } from '../../services/data-generation.service';
 import { ViewportScroller } from '@angular/common';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'muni-matrimonio',
@@ -13,6 +14,7 @@ import { ViewportScroller } from '@angular/common';
   ]
 })
 export class MatrimonioComponent implements OnInit{
+  private destroy$ = new Subject<void>();
   public nacimiento: Matrimonio[] = [];
   matrimonioForm: FormGroup;
   isSelectClicked = false;
@@ -56,6 +58,12 @@ export class MatrimonioComponent implements OnInit{
 
   ngOnInit(): void {
     this.triggerFunction();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.loading=false;
   }
 
   reloadCaptcha(): void {
@@ -105,7 +113,9 @@ export class MatrimonioComponent implements OnInit{
       if (nombre && apellidopaterno && apellidomaterno &&opcion && this.matrimonioForm.valid) {
 
         this.loading=true;
-        this.muniService.searchMatrimonio(nombre,apellidopaterno,apellidomaterno,opcion).subscribe((persona) => {
+        this.muniService.searchMatrimonio(nombre,apellidopaterno,apellidomaterno,opcion)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((persona) => {
           this.nacimiento = persona;
 
           if (this.nacimiento.length > 0) {
@@ -141,7 +151,11 @@ export class MatrimonioComponent implements OnInit{
 
   }
 
-
+  closeModal(): void {
+    this.destroy$.next(); // Emit value to cancel the HTTP request
+    this.cleanupBootstrapStyles(); // Clean up the modal styles
+    this.loading=false;
+  }
   private cleanupBootstrapStyles() {
     this.renderer.removeClass(document.body, 'modal-open');
     this.renderer.setStyle(document.body, 'overflow', 'auto');

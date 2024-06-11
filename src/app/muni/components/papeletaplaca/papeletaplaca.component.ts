@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { InfraccionPlaca } from 'src/app/auth/interfaces/InfraccionPlaca';
 import { DataGenerationService } from '../../services/data-generation.service';
 import { ViewportScroller } from '@angular/common';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'muni-papeletaplaca',
@@ -13,6 +14,7 @@ import { ViewportScroller } from '@angular/common';
   ]
 })
 export class PapeletaplacaComponent implements OnInit{
+  private destroy$ = new Subject<void>();
   papeletaplacaForm: FormGroup;
   public infraccionPlaca: InfraccionPlaca[] = [];
   showErrorAlert: boolean = false;
@@ -54,6 +56,12 @@ export class PapeletaplacaComponent implements OnInit{
     this.triggerFunction();
   }
 
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.loading=false;
+  }
+
     reloadCaptcha(): void {
       this.triggerFunction();
     }
@@ -93,7 +101,9 @@ export class PapeletaplacaComponent implements OnInit{
       const dni = this.papeletaplacaForm.get('placa')?.value;
         if (dni) {
           this.loading=true;
-          this.muniService.searchPlaca(dni).subscribe((persona) => {
+          this.muniService.searchPlaca(dni)
+          .pipe(takeUntil(this.destroy$))
+          .subscribe((persona) => {
             this.infraccionPlaca = persona;
 
             if (this.infraccionPlaca.length > 0) {
@@ -132,6 +142,12 @@ export class PapeletaplacaComponent implements OnInit{
 
     }
 
+
+    closeModal(): void {
+      this.destroy$.next();
+      this.cleanupBootstrapStyles();
+      this.loading=false;
+    }
 
     private cleanupBootstrapStyles() {
       this.renderer.removeClass(document.body, 'modal-open');

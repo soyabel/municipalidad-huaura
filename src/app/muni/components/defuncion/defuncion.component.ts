@@ -5,6 +5,7 @@ import { Defuncion } from 'src/app/auth/interfaces/Defuncion';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DataGenerationService } from '../../services/data-generation.service';
 import { ViewportScroller } from '@angular/common';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'muni-defuncion',
@@ -13,6 +14,7 @@ import { ViewportScroller } from '@angular/common';
   ]
 })
 export class DefuncionComponent {
+  private destroy$ = new Subject<void>();
   public defuncion: Defuncion[] = [];
   defuncionForm: FormGroup;
   isSelectClicked = false;
@@ -53,6 +55,12 @@ export class DefuncionComponent {
 
   ngOnInit(): void {
     this.triggerFunction();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.loading=false;
   }
 
   reloadCaptcha(): void {
@@ -99,7 +107,9 @@ export class DefuncionComponent {
       if (nombre && apellidopaterno && apellidomaterno) {
         this.loading = true;
 
-        this.muniService.searchDefuncion(nombre, apellidopaterno, apellidomaterno).subscribe((persona) => {
+        this.muniService.searchDefuncion(nombre, apellidopaterno, apellidomaterno)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((persona) => {
           this.defuncion = persona;
 
           if (this.defuncion.length > 0) {
@@ -135,6 +145,11 @@ export class DefuncionComponent {
 
   }
 
+  closeModal(): void {
+    this.destroy$.next();
+    this.cleanupBootstrapStyles();
+    this.loading=false;
+  }
 
   private cleanupBootstrapStyles() {
     this.renderer.removeClass(document.body, 'modal-open');

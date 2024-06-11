@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavigationStart, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Contribuyente } from 'src/app/auth/interfaces/Contribuyente';
-import { catchError, forkJoin, of, tap } from 'rxjs';
+import { Subject, catchError, forkJoin, of, takeUntil, tap } from 'rxjs';
 import { DataGenerationService } from '../../services/data-generation.service';
 import { ViewportScroller } from '@angular/common';
 
@@ -22,6 +22,7 @@ export class PredioComponent {
   showErrorAlertCaptcha: boolean = false;
   showErrorAlertCampos: boolean = false;
   loading: boolean = false;
+  private destroy$ = new Subject<void>();
 
   private text: string = '';
 
@@ -55,6 +56,11 @@ export class PredioComponent {
         }
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   reloadCaptcha(): void {
@@ -133,7 +139,10 @@ export class PredioComponent {
           })
         );
 
-        forkJoin([searchPredio$, searchContribuyente$]).subscribe(
+        forkJoin([searchPredio$, searchContribuyente$])
+        .pipe(
+          takeUntil(this.destroy$)
+        ).subscribe(
           ([predioData, contribuyenteData]) => {
             if (predioData.length > 0 || contribuyenteData.length > 0) {
               this.cleanupBootstrapStyles();
@@ -170,6 +179,11 @@ export class PredioComponent {
 
   }
 
+  closeModal(): void {
+    this.destroy$.next();
+    this.cleanupBootstrapStyles();
+    this.loading = false;
+  }
 
   private cleanupBootstrapStyles() {
     this.renderer.removeClass(document.body, 'modal-open');

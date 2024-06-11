@@ -1,0 +1,100 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <!-- NAV CONTAINER START -->
+  <div class="container-fluid">
+    <a (click)="serviciosSidecom()" class="navbar-brand text-white fw-semibold only-cursor">SIDECOM</a>
+
+    <!-- NAV BUTTON  -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
+      <span class=""><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-grid" viewBox="0 0 16 16">
+        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
+      </svg></span>
+    </button>
+    <!-- OFFCANVAS MAIN CONTAINER START -->
+    <section class="offcanvas offcanvas-start" id="menuLateral" tabindex="-1">
+      <div class="offcanvas-header" data-bs-theme="dark">
+        <h5 class="offcanvas-title text-white">SIDECOM</h5>
+        <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <!-- OFF CANVAS MENU LINKS  START-->
+      <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
+        <ul class="navbar-nav justify-content-evenly">
+          <li class="nav-item">
+            <a (click)="muniNoticias()" class="nav-link text-white only-cursor">INICIO</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              MUNICIPALIDAD
+            </a>
+            <ul class="dropdown-menu rounded-0 bg-portalweb-ul" aria-labelledby="navbarDropdown">
+              <li><a (click)="muniInformacion()" class="dropdown-item only-cursor">INFORMACIÓN</a></li>
+              <li><a (click)="muniOrganizacion()" class="dropdown-item only-cursor" >ORGANIZACION</a></li>
+              <li><a class="dropdown-item only-cursor" >DOCUMENTOS Y<br>NORMAS LEGALES</a></li>
+              <li><a class="dropdown-item only-cursor" >REGLAMENTO DE<br>ORGANIZACIÓN Y<br>FUNCIONES</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              UNIDADES ORGÁNICAS
+            </a>
+            <ul class="dropdown-menu rounded-0 bg-portalweb-ul" aria-labelledby="navbarDropdown">
+              <li class="nav-item dropend">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  GERENCIA DE GESTIÓN<br>DEL DESARROLLO<br>SOCIAL
+                </a>
+                <ul class="dropdown-menu rounded-0 bg-portalweb-ul" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">DEMUNA</a></li>
+                  <li><a class="dropdown-item" href="#">OMAPED</a></li>
+                  <li><a class="dropdown-item" href="#">ULE</a></li>
+                  <li><a class="dropdown-item" href="#">CASA DE LA CULTURA</a></li>
+                  <li class="nav-item dropend">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                      PROGRAMAS<br>SOCIALES
+                    </a>
+                    <ul class="dropdown-menu rounded-0 bg-portalweb-ul" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">VASO DE LECHE</a></li>
+                      <li><a class="dropdown-item" href="#">COMPLEMENTACIÓN<br>ALIMENTARIA</a></li>
+                      <li><a class="dropdown-item" href="#">EDUCACIÓN<br>,CURLTURA<br>Y DEPORTE</a></li>
+                    </ul>
+                  </li>
+                  </ul>
+              </li>
+              <li><a class="dropdown-item" href="#">GERENCIA DE<br>DESARROLLO URBANO<br>Y RURAL, RIESGOS DE<br>DESASTRES Y DEFENSA<br>CIVIL</a></li>
+              <li><a class="dropdown-item" href="#">SUBGERENCIA DE<br>SEGURIDAD CIUDADANA</a></li>
+              <li><a class="dropdown-item" href="#">GERENCIA DE<br>DESARROLLO ECONÓMICO<br>Y GESTIÓN AMBIENTAL</a></li>
+              <li><a class="dropdown-item" href="#">ÓRGANO DE CONTROL<br>INSTITUCIONAL</a></li>
+              <li><a class="dropdown-item" href="#">OFICINA GENERAL<br>DE ASESORÍA JURÍDICA</a></li>
+              <li><a class="dropdown-item" href="#">OFICINA GENERAL<br>DE ADMINISTRACIÓN<br>Y FINANZAS</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link text-white">TRANSPARENCIA</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              SERVICIOS
+            </a>
+            <ul class="dropdown-menu rounded-0 bg-portalweb-ul" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">CORREO<br>INSTITUCIONAL</a></li>
+              <li><a class="dropdown-item" href="#">SISGUEDO</a></li>
+              <li><a class="dropdown-item" href="#">MESA DE PARTES VIRTUAL</a></li>
+              <li><a class="dropdown-item" href="#">BUZON DE DENUNCIAS<br>O SUGERENCIAS</a></li>
+              <li><a class="dropdown-item" href="#">LIBRO DE<br>RECLAMACIONES</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link text-white">PRESUPUESTO</a>
+          </li>
+        </ul>
+        <!-- enlaces redes sociales -->
+
+        <div class="d-lg-none align-self-center py-3">
+          <a class="px-2" href=""><img class="img-fluid" src="assets/img/facebook.png" alt="facebook"></a>
+          <a class="px-2" href=""><img class="img-fluid" src="assets/img/instagram.png" alt="instagram"></a>
+          <a class="px-2" href=""><img class="img-fluid" src="assets/img/youtube.png" alt="youtube"></a>
+        </div>
+      </div>
+    </section>
+    <!-- OFFCANVAS MAIN CONTAINER END  -->
+  </div>
+</nav>
+

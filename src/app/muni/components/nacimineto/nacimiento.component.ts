@@ -5,6 +5,7 @@ import { Nacimiento } from 'src/app/auth/interfaces/Nacimiento';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DataGenerationService } from '../../services/data-generation.service';
 import { ViewportScroller } from '@angular/common';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'muni-nacimiento',
@@ -13,6 +14,7 @@ import { ViewportScroller } from '@angular/common';
   ]
 })
 export class NacimientoComponent implements OnInit {
+  private destroy$ = new Subject<void>();
   public nacimiento: Nacimiento[] = [];
   nacimientoForm!: FormGroup;
   isSelectClicked = false;
@@ -60,7 +62,11 @@ export class NacimientoComponent implements OnInit {
     this.triggerFunction();
   }
 
-
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.loading=false;
+  }
 
 
   reloadCaptcha(): void {
@@ -105,7 +111,9 @@ export class NacimientoComponent implements OnInit {
       const apellidomaterno = this.nacimientoForm.get('apellidomaterno')?.value;
       if (nombre && apellidopaterno && apellidomaterno) {
         this.loading=true
-        this.muniService.searchNacimiento(nombre, apellidopaterno, apellidomaterno).subscribe((persona) => {
+        this.muniService.searchNacimiento(nombre, apellidopaterno, apellidomaterno)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((persona) => {
           this.nacimiento = persona;
 
           if (this.nacimiento.length > 0) {
@@ -141,6 +149,11 @@ export class NacimientoComponent implements OnInit {
 
   }
 
+  closeModal(): void {
+    this.destroy$.next();
+    this.cleanupBootstrapStyles();
+    this.loading=false;
+  }
 
   private cleanupBootstrapStyles() {
     this.renderer.removeClass(document.body, 'modal-open');

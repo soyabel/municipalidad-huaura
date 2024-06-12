@@ -14,6 +14,6 @@ export class MuninoticiasPageComponent {
   }
 
   mostrarNotificacion() {
-    this.toastr.info('Realiza tus consultas en línea', 'Sidecom',{timeOut:6000});
+    this.toastr.info('Realiza tus consultas en línea', 'SIDECOM',{timeOut:6000});
   }
 }

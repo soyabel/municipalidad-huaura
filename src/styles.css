@@ -594,7 +594,10 @@ background-color: #3da5e2;
     top: 0;
     left: 100%;
     margin-left: .125em;
+
   }
+
+
 }
 
 nav,
@@ -607,9 +610,11 @@ nav,
 }
 
 .dropdown-item:hover{
-  background-color: #68B5F1;
-  color: #ffffff;
+  background-color: #68B5F1 ;
+  color: #ffffff ;
 }
+
+
 
 .navbar-toggler {
   border: none;
@@ -620,8 +625,43 @@ nav,
   box-shadow: none;
 }
 
-@media (max-width: 768px) {
-  .navbar-nav>li:hover {
-    background-color: #0dcaf0;
+
+.nav-portalweb{
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+}
+
+.contenedor-titulo-img{
+  margin-top: 56px;
+}
+
+@media (max-width: 445px) {
+  .tabla-width {
+    font-size: 10px;
+  }
+  .titulo-img-portalweb{
+    font-size: 18px;
+  }
+  .siguenos-portalweb{
+    font-size: 12px;
+  }
+
+
+}
+
+
+@media (max-width: 991px) {
+  .nav-link{
+    padding-left: 10px;
+  }
+  .nav-item>li{
+    padding-left: 13px;
   }
 }
+
+
+
+
+

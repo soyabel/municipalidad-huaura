@@ -1,7 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg  nav-portalweb">
   <!-- NAV CONTAINER START -->
   <div class="container-fluid">
-    <a (click)="serviciosSidecom()" class="navbar-brand text-white fw-semibold only-cursor">SIDECOM</a>
+    <a (click)="navegarA('/servicios', $event)"  class="navbar-brand text-white fw-semibold only-cursor">
+      <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-browser-chrome" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M16 8a8 8 0 0 1-7.022 7.94l1.902-7.098a3 3 0 0 0 .05-1.492A3 3 0 0 0 10.237 6h5.511A8 8 0 0 1 16 8M0 8a8 8 0 0 0 7.927 8l1.426-5.321a3 3 0 0 1-.723.255 3 3 0 0 1-1.743-.147 3 3 0 0 1-1.043-.7L.633 4.876A8 8 0 0 0 0 8m5.004-.167L1.108 3.936A8.003 8.003 0 0 1 15.418 5H8.066a3 3 0 0 0-1.252.243 2.99 2.99 0 0 0-1.81 2.59M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+      </svg>
+      SIDECOM</a>
 
     <!-- NAV BUTTON  -->
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
@@ -11,7 +15,7 @@
     </button>
     <!-- OFFCANVAS MAIN CONTAINER START -->
     <section class="offcanvas offcanvas-start" id="menuLateral" tabindex="-1">
-      <div class="offcanvas-header" data-bs-theme="dark">
+      <div class="offcanvas-header" >
         <h5 class="offcanvas-title text-white">SIDECOM</h5>
         <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="offcanvas"></button>
       </div>
@@ -19,15 +23,15 @@
       <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
         <ul class="navbar-nav justify-content-evenly">
           <li class="nav-item">
-            <a (click)="muniNoticias()" class="nav-link text-white only-cursor">INICIO</a>
+            <a (click)="navegarA('portalweb/inicio', $event);closeOffcanvas()" class="nav-link text-white only-cursor">INICIO</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               MUNICIPALIDAD
             </a>
             <ul class="dropdown-menu rounded-0 bg-portalweb-ul" aria-labelledby="navbarDropdown">
-              <li><a (click)="muniInformacion()" class="dropdown-item only-cursor">INFORMACIÓN</a></li>
-              <li><a (click)="muniOrganizacion()" class="dropdown-item only-cursor" >ORGANIZACION</a></li>
+              <li><a (click)="navegarA('portalweb/informacion', $event);closeOffcanvas()" class="dropdown-item only-cursor">INFORMACIÓN</a></li>
+              <li><a (click)="navegarA('portalweb/organizacion', $event);closeOffcanvas()"  class="dropdown-item only-cursor">ORGANIZACION</a></li>
               <li><a class="dropdown-item only-cursor" >DOCUMENTOS Y<br>NORMAS LEGALES</a></li>
               <li><a class="dropdown-item only-cursor" >REGLAMENTO DE<br>ORGANIZACIÓN Y<br>FUNCIONES</a></li>
             </ul>
@@ -42,47 +46,47 @@
                   GERENCIA DE GESTIÓN<br>DEL DESARROLLO<br>SOCIAL
                 </a>
                 <ul class="dropdown-menu rounded-0 bg-portalweb-ul" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">DEMUNA</a></li>
-                  <li><a class="dropdown-item" href="#">OMAPED</a></li>
-                  <li><a class="dropdown-item" href="#">ULE</a></li>
-                  <li><a class="dropdown-item" href="#">CASA DE LA CULTURA</a></li>
+                  <li><a (click)="navegarA('portalweb/demuna', $event);closeOffcanvas()" class="dropdown-item only-cursor">DEMUNA</a></li>
+                  <li><a (click)="navegarA('portalweb/omaped', $event);closeOffcanvas()" class="dropdown-item only-cursor" >OMAPED</a></li>
+                  <li><a (click)="navegarA('portalweb/ule', $event);closeOffcanvas()" class="dropdown-item only-cursor" >ULE</a></li>
+                  <li><a (click)="navegarA('portalweb/casa-de-la-cultura', $event);closeOffcanvas()" class="dropdown-item only-cursor" >CASA DE LA CULTURA</a></li>
                   <li class="nav-item dropend">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
                       PROGRAMAS<br>SOCIALES
                     </a>
                     <ul class="dropdown-menu rounded-0 bg-portalweb-ul" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">VASO DE LECHE</a></li>
-                      <li><a class="dropdown-item" href="#">COMPLEMENTACIÓN<br>ALIMENTARIA</a></li>
-                      <li><a class="dropdown-item" href="#">EDUCACIÓN<br>,CURLTURA<br>Y DEPORTE</a></li>
+                      <li><a (click)="navegarA('portalweb/vaso-de-leche', $event);closeOffcanvas()" class="dropdown-item only-cursor" >VASO DE LECHE</a></li>
+                      <li><a (click)="navegarA('portalweb/complementacion-alimentaria', $event);closeOffcanvas()" class="dropdown-item only-cursor">COMPLEMENTACIÓN<br>ALIMENTARIA</a></li>
+                      <li><a (click)="navegarA('portalweb/educacion-cultura-deporte', $event);closeOffcanvas()" class="dropdown-item only-cursor">EDUCACIÓN,<br>CULTURA<br>Y DEPORTE</a></li>
                     </ul>
                   </li>
                   </ul>
               </li>
-              <li><a class="dropdown-item" href="#">GERENCIA DE<br>DESARROLLO URBANO<br>Y RURAL, RIESGOS DE<br>DESASTRES Y DEFENSA<br>CIVIL</a></li>
-              <li><a class="dropdown-item" href="#">SUBGERENCIA DE<br>SEGURIDAD CIUDADANA</a></li>
-              <li><a class="dropdown-item" href="#">GERENCIA DE<br>DESARROLLO ECONÓMICO<br>Y GESTIÓN AMBIENTAL</a></li>
-              <li><a class="dropdown-item" href="#">ÓRGANO DE CONTROL<br>INSTITUCIONAL</a></li>
-              <li><a class="dropdown-item" href="#">OFICINA GENERAL<br>DE ASESORÍA JURÍDICA</a></li>
-              <li><a class="dropdown-item" href="#">OFICINA GENERAL<br>DE ADMINISTRACIÓN<br>Y FINANZAS</a></li>
+              <li><a (click)="navegarA('portalweb/gerencia-de-desarrollo-urbano-y-rural-riesgos-de-desastres-y-defensa-civil', $event);closeOffcanvas()" class="dropdown-item only-cursor">GERENCIA DE<br>DESARROLLO URBANO<br>Y RURAL, RIESGOS DE<br>DESASTRES Y DEFENSA<br>CIVIL</a></li>
+              <li><a (click)="navegarA('portalweb/subgerencia-de-seguridad-ciudadana', $event);closeOffcanvas()" class="dropdown-item only-cursor">SUBGERENCIA DE<br>SEGURIDAD CIUDADANA</a></li>
+              <li><a (click)="navegarA('portalweb/gerencia-de-desarrollo-economico-y-gestion-ambiental', $event);closeOffcanvas()" class="dropdown-item only-cursor">GERENCIA DE<br>DESARROLLO ECONÓMICO<br>Y GESTIÓN AMBIENTAL</a></li>
+              <li><a (click)="navegarA('portalweb/organo-de-control-institucional', $event);closeOffcanvas()" class="dropdown-item only-cursor">ÓRGANO DE CONTROL<br>INSTITUCIONAL</a></li>
+              <li><a (click)="navegarA('portalweb/oficina-general-de-asesoria-juridica', $event);closeOffcanvas()" class="dropdown-item only-cursor">OFICINA GENERAL<br>DE ASESORÍA JURÍDICA</a></li>
+              <li><a (click)="navegarA('portalweb/oficina-general-de-administracion-y-finanzas', $event);closeOffcanvas()" class="dropdown-item only-cursor">OFICINA GENERAL<br>DE ADMINISTRACIÓN<br>Y FINANZAS</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link text-white">TRANSPARENCIA</a>
+            <a href="https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=12122#.YaD89tBBw3s" target="_blank" class="nav-link text-white">TRANSPARENCIA</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               SERVICIOS
             </a>
             <ul class="dropdown-menu rounded-0 bg-portalweb-ul" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">CORREO<br>INSTITUCIONAL</a></li>
-              <li><a class="dropdown-item" href="#">SISGUEDO</a></li>
-              <li><a class="dropdown-item" href="#">MESA DE PARTES VIRTUAL</a></li>
-              <li><a class="dropdown-item" href="#">BUZON DE DENUNCIAS<br>O SUGERENCIAS</a></li>
-              <li><a class="dropdown-item" href="#">LIBRO DE<br>RECLAMACIONES</a></li>
+              <li><a (click)="abriWebExterna('https://webmail.munihuacho.gob.pe/')" class="dropdown-item only-cursor">CORREO<br>INSTITUCIONAL</a></li>
+              <li><a (click)="abriWebExterna('http://sisgedo2.munihuacho.gob.pe/sisgedonew/app/main.php')" class="dropdown-item only-cursor">SISGUEDO</a></li>
+              <li><a (click)="abriWebExterna('https://facilita.gob.pe/t/1779')" class="dropdown-item only-cursor">MESA DE PARTES VIRTUAL</a></li>
+              <li><a (click)="abriWebExterna('https://form.123formbuilder.com/5281410')" class="dropdown-item only-cursor">BUZON DE DENUNCIAS<br>O SUGERENCIAS</a></li>
+              <li><a (click)="abriWebExterna('https://form.123formbuilder.com/5281412')" class="dropdown-item only-cursor">LIBRO DE<br>RECLAMACIONES</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link text-white">PRESUPUESTO</a>
+            <a (click)="navegarA('portalweb/presupuesto', $event)" class="nav-link text-white only-cursor">PRESUPUESTO</a>
           </li>
         </ul>
         <!-- enlaces redes sociales -->

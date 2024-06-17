@@ -23,6 +23,7 @@ export class PredioComponent {
   showErrorAlertCampos: boolean = false;
   loading: boolean = false;
   private destroy$ = new Subject<void>();
+  isSubmitted: boolean = false;
 
   private text: string = '';
 
@@ -111,6 +112,7 @@ export class PredioComponent {
 
 
   onSubmit() {
+    this.isSubmitted = true;
     if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
 
       this.predioForm.updateValueAndValidity();
@@ -154,6 +156,7 @@ export class PredioComponent {
               setTimeout(() => {
                 this.showErrorAlert = false;
                 this.triggerFunction();
+                this.isSubmitted = false;
               }, 4000);
             }
           }
@@ -166,6 +169,7 @@ export class PredioComponent {
         setTimeout(() => {
           this.triggerFunction();
           this.showErrorAlertCampos = false;
+          this.isSubmitted = false;
         }, 3000);
       }
     } else {
@@ -173,6 +177,7 @@ export class PredioComponent {
       setTimeout(() => {
         this.showErrorAlertCaptcha = false;
         this.triggerFunction();
+        this.isSubmitted = false;
       }, 3000);
     }
 

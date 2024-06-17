@@ -24,6 +24,7 @@ export class ArbitrioComponent {
   showErrorAlertCaptcha: boolean = false;
   showErrorAlertCampos: boolean = false;
   loading: boolean = false;
+  isSubmitted: boolean = false;
 
   private text: string = '';
 
@@ -108,6 +109,7 @@ export class ArbitrioComponent {
   }
 
   onSubmit() {
+    this.isSubmitted=true;
     if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
       this.arbitrioForm.updateValueAndValidity();
       const arbitrio = this.arbitrioForm.get('arbitrio')?.value;
@@ -151,6 +153,7 @@ export class ArbitrioComponent {
               setTimeout(() => {
                 this.showErrorAlert = false;
                 this.triggerFunction();
+                this.isSubmitted=false;
               }, 4000);
             }
           });
@@ -161,6 +164,7 @@ export class ArbitrioComponent {
         setTimeout(() => {
           this.triggerFunction();
           this.showErrorAlertCampos = false;
+          this.isSubmitted=false;
         }, 3000);
       }
     } else {
@@ -168,6 +172,7 @@ export class ArbitrioComponent {
       setTimeout(() => {
         this.showErrorAlertCaptcha = false;
         this.triggerFunction();
+        this.isSubmitted=false;
       }, 3000);
     }
 

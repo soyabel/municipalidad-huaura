@@ -50,6 +50,15 @@ export class PapeletaplacaPageComponent implements OnInit{
     this.data = this.muniService.getDataInfraccionesPlaca();
     this.filterData();
     this.calculateTotalSaldo();
+    this.calcularSaldoCosta();
+  }
+
+  calculateTotalSaldo():number {
+    return this.data.reduce((acc: number, infraccion: any) => acc + infraccion.sald_pago, 0);
+  }
+
+  calcularSaldoCosta():number {
+    return this.data.reduce((acc: number, infraccion: any) => acc + infraccion.sald_costas, 0);
   }
 
   cerrarSession():void{
@@ -57,9 +66,7 @@ export class PapeletaplacaPageComponent implements OnInit{
     this.router.navigate(['/servicios']);
   }
 
-  calculateTotalSaldo():number {
-    return this.data.reduce((acc: number, infraccion: any) => acc + infraccion.sald_pago, 0);
-  }
+
 
 
   searchPropietario(codi_inct: string, codi_cnta: string, anio_cnta: string, fech_noti: string, plac: string,index: number) {

@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 @import 'ngx-toastr/toastr';
 
+
+
+
 :root {
   --color-primario: #3da5e2;
   --color-secundario: #00426a;
@@ -211,6 +214,13 @@ header .menu .c3:hover {
     display: none;
   }
 }
+
+/* @media (max-width: 767px) {
+  .ocultar-slider{
+    display: none;
+  }
+} */
+
 
 /* end anuncio */
 
@@ -452,7 +462,10 @@ iframe {
 
 .titulo-portalweb{
   padding-bottom: 10px;
-  border-bottom: 2px solid #0e2238;
+}
+.bg-muni-text-white{
+  background-color: var(--color-primario);
+  color: #ffffff;
 }
 
 @media (max-width: 1600px) {
@@ -506,8 +519,8 @@ iframe {
 
 
 .pie-img{
-  background: rgb(0,66,106);
-background: linear-gradient(90deg, rgba(31,85,116,1) 24%, rgba(61,165,226,1) 72%);
+  background-color:#EEEEEE;
+  color: var(--color-secundario);
 }
 
 
@@ -625,6 +638,12 @@ nav,
   box-shadow: none;
 }
 
+.siguenos-pw{
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+}
 
 .nav-portalweb{
   position: fixed;
@@ -644,7 +663,7 @@ nav,
   .titulo-img-portalweb{
     font-size: 18px;
   }
-  .siguenos-portalweb{
+   .siguenos-portalweb{
     font-size: 12px;
   }
 
@@ -663,5 +682,19 @@ nav,
 
 
 
+.gallery-item{
+	/* max-width: 100%; */
+}
+.gallery{
+  background-color: #ffffff;
 
-
+}
+.gallery img{
+	background-color: #3da5e2;
+	padding: 15px;
+	width: 100%;
+	box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+#gallery-modal .modal-img{
+	width: 100%;
+}

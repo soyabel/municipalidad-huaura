@@ -1,5 +1,8 @@
-import { Component, HostListener, Renderer2 } from '@angular/core';
+import { Component, HostListener, Renderer2, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'muni-main',
@@ -7,6 +10,7 @@ import { NavigationStart, Router } from '@angular/router';
   styles: []
 })
 export class MainComponent {
+
 
   constructor(
     private router: Router,

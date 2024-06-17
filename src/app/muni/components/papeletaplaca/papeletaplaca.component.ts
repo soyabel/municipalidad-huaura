@@ -21,6 +21,7 @@ export class PapeletaplacaComponent implements OnInit{
   showErrorAlertCampos: boolean = false;
   showErrorAlertCaptcha: boolean = false;
   loading: boolean = false;
+  isSubmitted: boolean = false;
   private text: string = '';
 
 
@@ -95,6 +96,7 @@ export class PapeletaplacaComponent implements OnInit{
     }
 
     onSubmit() {
+      this.isSubmitted = true;
       if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
 
       this.papeletaplacaForm.updateValueAndValidity();
@@ -116,6 +118,7 @@ export class PapeletaplacaComponent implements OnInit{
               this.showErrorAlert = true;
               setTimeout(() => {
                 this.triggerFunction();
+                this.isSubmitted = false;
                 this.showErrorAlert = false;
               }, 4000);
             }
@@ -127,6 +130,7 @@ export class PapeletaplacaComponent implements OnInit{
           setTimeout(() => {
             this.triggerFunction();
             this.showErrorAlertCampos = false;
+            this.isSubmitted = false;
           }, 3000);
         }
 
@@ -136,6 +140,7 @@ export class PapeletaplacaComponent implements OnInit{
       setTimeout(() => {
         this.showErrorAlertCaptcha = false;
         this.triggerFunction();
+        this.isSubmitted = false;
       }, 3000);
       }
 

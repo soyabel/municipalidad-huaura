@@ -22,6 +22,7 @@ export class MatrimonioComponent implements OnInit{
   showErrorAlertCaptcha: boolean =false;
   showErrorAlertCampos: boolean = false;
   loading: boolean = false;
+  isSubmitted: boolean = false;
   private text: string = '';
 
   @ViewChild('canvas', { static: true }) canvas?: ElementRef;
@@ -101,7 +102,7 @@ export class MatrimonioComponent implements OnInit{
 
 
   onSubmit() {
-
+    this.isSubmitted=true;
     if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
 
       this.matrimonioForm.updateValueAndValidity();
@@ -128,6 +129,7 @@ export class MatrimonioComponent implements OnInit{
             setTimeout(() => {
               this.triggerFunction();
               this.showErrorAlert = false;
+              this.isSubmitted=false;
             }, 4000);
           }
         });
@@ -138,6 +140,7 @@ export class MatrimonioComponent implements OnInit{
         setTimeout(() => {
           this.triggerFunction();
           this.showErrorAlertCampos = false;
+          this.isSubmitted=false;
         }, 3000);
       }
 
@@ -146,6 +149,7 @@ export class MatrimonioComponent implements OnInit{
       setTimeout(() => {
         this.showErrorAlertCaptcha = false;
         this.triggerFunction();
+        this.isSubmitted=false;
       }, 3000);
     }
 

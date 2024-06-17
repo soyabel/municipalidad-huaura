@@ -25,6 +25,7 @@ import { TransporteComponent } from './components/transporte/transporte.componen
 import { SidecomComponent } from './components/sidecom/sidecom.component';
 import { LayoutPortalWebPageComponent } from './pages/layout-portal-web-page/layout-portal-web-page.component';
 import { PortalWebPageComponent } from './pages/portal-web-page/portal-web-page.component';
+import { LightgalleryModule } from 'lightgallery/angular';
 
 
 
@@ -60,7 +61,8 @@ import { PortalWebPageComponent } from './pages/portal-web-page/portal-web-page.
     HttpClientModule,
     RecaptchaModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LightgalleryModule,
   ],
   exports:[
     NavComponent,

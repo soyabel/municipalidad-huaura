@@ -22,6 +22,7 @@ export class DefuncionComponent {
   showErrorAlertCaptcha: boolean = false;
   showErrorAlertCampos: boolean = false;
   loading: boolean = false;
+  isSubmitted: boolean = false;
   private text: string = '';
 
   @ViewChild('canvas', { static: true }) canvas?: ElementRef;
@@ -98,6 +99,7 @@ export class DefuncionComponent {
 
 
   onSubmit() {
+    this.isSubmitted = true;
     if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
       this.defuncionForm.updateValueAndValidity();
       const nombre = this.defuncionForm.get('nombre')?.value;
@@ -122,6 +124,7 @@ export class DefuncionComponent {
             setTimeout(() => {
               this.triggerFunction();
               this.showErrorAlert = false;
+              this.isSubmitted = false;
             }, 4000);
           }
         });
@@ -132,6 +135,7 @@ export class DefuncionComponent {
         setTimeout(() => {
           this.triggerFunction();
           this.showErrorAlertCampos = false;
+          this.isSubmitted = false;
         }, 3000);
       }
     } else {
@@ -139,6 +143,7 @@ export class DefuncionComponent {
       setTimeout(() => {
         this.showErrorAlertCaptcha = false;
         this.triggerFunction();
+        this.isSubmitted = false;
       }, 3000);
 
     }

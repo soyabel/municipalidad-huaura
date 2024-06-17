@@ -8,12 +8,13 @@ import { ToastrService } from 'ngx-toastr';
   ]
 })
 export class MuninoticiasPageComponent {
-  constructor(private toastr: ToastrService) {}
+  constructor(private toastr: ToastrService) { }
   ngOnInit(): void {
     this.mostrarNotificacion();
   }
 
+
   mostrarNotificacion() {
-    this.toastr.info('Realiza tus consultas en línea', 'SIDECOM',{timeOut:6000});
+    this.toastr.info('Realiza tus consultas en línea', 'SIDECOM', { timeOut: 6000 });
   }
 }

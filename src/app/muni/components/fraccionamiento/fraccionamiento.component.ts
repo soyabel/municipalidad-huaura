@@ -22,6 +22,7 @@ export class FraccionamientoComponent {
   showErrorAlertCaptcha: boolean = false;
   showErrorAlertCampos: boolean = false;
   loading: boolean = false;
+  isSubmitted: boolean = false;
   private destroy$ = new Subject<void>();
   private text: string = '';
 
@@ -110,6 +111,7 @@ export class FraccionamientoComponent {
 
 
   onSubmit() {
+    this.isSubmitted=true;
     if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
       this.fraccionamientoForm.updateValueAndValidity();
       const fraccionamiento = this.fraccionamientoForm.get('fraccionamiento')?.value;
@@ -153,6 +155,7 @@ export class FraccionamientoComponent {
               setTimeout(() => {
                 this.showErrorAlert = false;
                 this.triggerFunction();
+                this.isSubmitted=false;
               }, 4000);
             }
           });
@@ -163,6 +166,7 @@ export class FraccionamientoComponent {
         setTimeout(() => {
           this.triggerFunction();
           this.showErrorAlertCampos = false;
+          this.isSubmitted=false;
         }, 3000);
       }
     } else {
@@ -170,6 +174,7 @@ export class FraccionamientoComponent {
       setTimeout(() => {
         this.showErrorAlertCaptcha = false;
         this.triggerFunction();
+        this.isSubmitted=false;
       }, 3000);
 
     }

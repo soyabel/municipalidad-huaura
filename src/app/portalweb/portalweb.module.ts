@@ -25,6 +25,11 @@ import { GerenciaecoambPageComponent } from './pages/gerenciaecoamb-page/gerenci
 import { OrganoinstitucionalPageComponent } from './pages/organoinstitucional-page/organoinstitucional-page.component';
 import { AsesoriajuridicaPageComponent } from './pages/asesoriajuridica-page/asesoriajuridica-page.component';
 import { AdministracionfinanzasPageComponent } from './pages/administracionfinanzas-page/administracionfinanzas-page.component';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { SliderPortalwebComponent } from './components/slider-portalweb/slider-portalweb.component';
+import { SliderPwComponent } from './components/slider-pw/slider-pw.component';
+
+
 
 
 @NgModule({
@@ -50,12 +55,15 @@ import { AdministracionfinanzasPageComponent } from './pages/administracionfinan
     GerenciaecoambPageComponent,
     OrganoinstitucionalPageComponent,
     AsesoriajuridicaPageComponent,
-    AdministracionfinanzasPageComponent
+    AdministracionfinanzasPageComponent,
+    SliderPortalwebComponent,
+    SliderPwComponent
   ],
   imports: [
     CommonModule,
     PortalwebRoutingModule,
-    MuniModule
+    MuniModule,
+    NgImageSliderModule,
   ]
 })
 export class PortalwebModule { }

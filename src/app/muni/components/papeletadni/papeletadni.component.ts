@@ -21,6 +21,7 @@ export class PapeletadniComponent implements OnInit {
   showErrorAlertCaptcha: boolean = false;
   showErrorAlertCampos: boolean = false;
   loading: boolean = false;
+  isSubmitted: boolean = false;
   private text: string = '';
 
   @ViewChild('canvas', { static: true }) canvas?: ElementRef;
@@ -95,6 +96,7 @@ export class PapeletadniComponent implements OnInit {
 
 
   onSubmit() {
+    this.isSubmitted = true;
     if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
 
       this.papeletadniForm.updateValueAndValidity();
@@ -119,6 +121,7 @@ export class PapeletadniComponent implements OnInit {
             setTimeout(() => {
               this.showErrorAlert = false;
               this.triggerFunction();
+              this.isSubmitted = false;
             }, 4000);
 
           }
@@ -130,6 +133,7 @@ export class PapeletadniComponent implements OnInit {
         setTimeout(() => {
           this.triggerFunction();
           this.showErrorAlertCampos = false;
+          this.isSubmitted = false;
         }, 3000);
 
       }
@@ -139,6 +143,7 @@ export class PapeletadniComponent implements OnInit {
       setTimeout(() => {
         this.showErrorAlertCaptcha = false;
         this.triggerFunction();
+        this.isSubmitted = false;
       }, 3000);
 
     }

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 
+
+declare var bootstrap: any;
 @Component({
   selector: 'app-muniorganizacion-page',
   templateUrl: './muniorganizacion-page.component.html',
@@ -7,5 +9,10 @@ import { Component } from '@angular/core';
   ]
 })
 export class MuniorganizacionPageComponent {
+  constructor(
+  ) {
+
+  }
+
 
 }

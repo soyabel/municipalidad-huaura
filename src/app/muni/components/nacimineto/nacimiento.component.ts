@@ -22,6 +22,7 @@ export class NacimientoComponent implements OnInit {
   showErrorAlertCaptcha: boolean = false;
   showErrorAlertCampos: boolean = false;
   loading: boolean = false;
+  isSubmitted: boolean = false;
   private text: string = '';
   minimumLength: number = 2;
 
@@ -104,6 +105,7 @@ export class NacimientoComponent implements OnInit {
 
 
   onSubmit() {
+    this.isSubmitted = true;
     if (this.userInput?.nativeElement.value.toUpperCase() === this.text) {
       this.nacimientoForm.updateValueAndValidity();
       const nombre = this.nacimientoForm.get('nombre')?.value;
@@ -126,6 +128,7 @@ export class NacimientoComponent implements OnInit {
             setTimeout(() => {
               this.showErrorAlert = false;
               this.triggerFunction();
+              this.isSubmitted = false;
             }, 4000);
           }
         });
@@ -136,6 +139,7 @@ export class NacimientoComponent implements OnInit {
         setTimeout(() => {
           this.triggerFunction();
           this.showErrorAlertCampos = false;
+          this.isSubmitted = false;
         }, 3000);
 
       }
@@ -144,6 +148,7 @@ export class NacimientoComponent implements OnInit {
       setTimeout(() => {
         this.showErrorAlertCaptcha = false;
         this.triggerFunction();
+        this.isSubmitted = false;
       }, 3000);
     }
 

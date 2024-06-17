@@ -1,0 +1,18 @@
+.pw-titulo-slider{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  color: var(--color-primario);
+}
+
+@keyframes latido-portalweb {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+}
+
+.pw-titulo-slider {
+  animation: latido-portalweb 2.3s infinite;
+}

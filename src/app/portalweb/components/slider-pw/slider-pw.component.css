@@ -1,0 +1,22 @@
+.contenedor-slider-pw{
+  margin-top: 56px;
+  background-color: #029AE9;
+}
+
+
+.custom-carousel .carousel-inner .carousel-item {
+  background-color: transparent;
+}
+
+.custom-carousel .carousel-indicators button {
+  background-color: rgba(0, 0, 0, 0.5); /* Ajusta la transparencia del fondo de los indicadores si es necesario */
+}
+
+.custom-carousel .carousel-control-prev-icon,
+.custom-carousel .carousel-control-next-icon {
+  background-color: transparent; /* Elimina el fondo de los controles */
+}
+
+.custom-carousel .carousel-item img {
+  filter: none; /* Asegúrate de que no haya ningún filtro aplicado a las imágenes */
+}

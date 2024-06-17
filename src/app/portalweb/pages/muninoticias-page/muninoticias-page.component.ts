@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
+
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -17,4 +18,5 @@ export class MuninoticiasPageComponent {
   mostrarNotificacion() {
     this.toastr.info('Realiza tus consultas en línea', 'SIDECOM', { timeOut: 6000 });
   }
+
 }

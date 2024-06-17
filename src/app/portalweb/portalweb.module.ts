@@ -28,6 +28,7 @@ import { AdministracionfinanzasPageComponent } from './pages/administracionfinan
 import { NgImageSliderModule } from 'ng-image-slider';
 import { SliderPortalwebComponent } from './components/slider-portalweb/slider-portalweb.component';
 import { SliderPwComponent } from './components/slider-pw/slider-pw.component';
+import { IframePwComponent } from './components/iframe-pw/iframe-pw.component';
 
 
 
@@ -57,7 +58,8 @@ import { SliderPwComponent } from './components/slider-pw/slider-pw.component';
     AsesoriajuridicaPageComponent,
     AdministracionfinanzasPageComponent,
     SliderPortalwebComponent,
-    SliderPwComponent
+    SliderPwComponent,
+    IframePwComponent
   ],
   imports: [
     CommonModule,

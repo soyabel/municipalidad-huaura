@@ -674,7 +674,7 @@ nav,
 
 
 .gallery-item{
-	/* max-width: 100%; */
+	max-width: 100%;
 }
 .gallery{
   background-color: #ffffff;
@@ -685,52 +685,20 @@ nav,
 	padding: 15px;
 	width: 100%;
 	box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  cursor: pointer;
 }
 #gallery-modal .modal-img{
 	width: 100%;
 
 }
 
-
-iframe {
-  position: fixed;
-  height: 100vh;
+ iframe {
   width: 100%;
+  height:2000px;
   border: none;
-  left: 0;
-  right: 0;
 }
 
 
-/* .nav-portalweb{
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-  top: 0;
-} */
-
-
-
-
-
-
-
-
-
-/* .slider1{
-position: relative;
-z-index: 2;
-}
-iframe {
-  position: relative;
-  margin-top: 50px;
-  width: 100%;
-  height: 100vh ;
-  border: none;
-  top: 0;
-  left: 0;
-  right: 0;
-} */
 
 
 .contenedor-main-portalweb{

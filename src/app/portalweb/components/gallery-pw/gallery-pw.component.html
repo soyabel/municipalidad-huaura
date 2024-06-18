@@ -1,0 +1,25 @@
+<div class="my-5">
+  <section class="gallery">
+    <div class="container-lg">
+      <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+        <div class="col" *ngFor="let image of imagenes">
+          <img [src]="image.src" class="gallery-item" alt="gallery" (click)="openModal(image.src)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="gallery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body x">
+          <img [src]="modalImageSrc" class="modal-img" alt="modal img">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

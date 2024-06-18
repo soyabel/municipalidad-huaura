@@ -29,28 +29,12 @@ export class MuniorganizacionPageComponent {
     });
 
   }
+
   images = [
     { src: 'assets/img/org1.jpg' },
     { src: 'assets/img/org2.jpg' },
     { src: 'assets/img/org3.jpg' },
     { src: 'assets/img/org4.jpg' },
     { src: 'assets/img/org5.jpg' }
-    // Add more images as needed
   ];
-
-  modalImageSrc: string = '';
-
-  openModal(imageSrc: string): void {
-    this.modalImageSrc = imageSrc;
-    const modalElement = document.getElementById('gallery-modal');
-    if (modalElement) {
-      // Using jQuery (ensure you have included jQuery in your project)
-      // $(modalElement).modal('show');
-
-      // If using Bootstrap 5 without jQuery
-      const bsModal = new bootstrap.Modal(modalElement);
-      bsModal.show();
-    }
-  }
-
 }

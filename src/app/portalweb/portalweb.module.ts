@@ -29,6 +29,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { SliderPortalwebComponent } from './components/slider-portalweb/slider-portalweb.component';
 import { SliderPwComponent } from './components/slider-pw/slider-pw.component';
 import { IframePwComponent } from './components/iframe-pw/iframe-pw.component';
+import { GalleryPwComponent } from './components/gallery-pw/gallery-pw.component';
 
 
 
@@ -59,7 +60,8 @@ import { IframePwComponent } from './components/iframe-pw/iframe-pw.component';
     AdministracionfinanzasPageComponent,
     SliderPortalwebComponent,
     SliderPwComponent,
-    IframePwComponent
+    IframePwComponent,
+    GalleryPwComponent
   ],
   imports: [
     CommonModule,

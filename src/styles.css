@@ -505,7 +505,7 @@ canvas {
 
 
 .bg-tabla{
-  background-color: var(--color-secundario) !important;
+  background-color: var(--color-primario) !important;
 }
 
 
@@ -694,7 +694,7 @@ nav,
 
  iframe {
   width: 100%;
-  height:2000px;
+  height:3180px;
   border: none;
 }
 

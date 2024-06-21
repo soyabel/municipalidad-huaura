@@ -34,7 +34,5 @@ export class MuniorganizacionPageComponent {
     { src: 'assets/img/org1.jpg' },
     { src: 'assets/img/org2.jpg' },
     { src: 'assets/img/org3.jpg' },
-    { src: 'assets/img/org4.jpg' },
-    { src: 'assets/img/org5.jpg' }
   ];
 }

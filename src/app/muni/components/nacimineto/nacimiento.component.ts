@@ -126,7 +126,7 @@ export class NacimientoComponent implements OnInit {
             this.loading = false;
             this.showErrorAlert = true;
             setTimeout(() => {
-              this.showErrorAlert = false;
+             // this.showErrorAlert = false;
               this.triggerFunction();
               this.isSubmitted = false;
             }, 4000);

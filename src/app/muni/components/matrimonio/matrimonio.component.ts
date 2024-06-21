@@ -128,7 +128,7 @@ export class MatrimonioComponent implements OnInit{
             this.showErrorAlert = true;
             setTimeout(() => {
               this.triggerFunction();
-              this.showErrorAlert = false;
+             // this.showErrorAlert = false;
               this.isSubmitted=false;
             }, 4000);
           }

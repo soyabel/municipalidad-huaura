@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 declare var bootstrap: any;
 @Component({
@@ -16,7 +16,12 @@ export class NavPortalWebComponent {
     private router: Router,
     private toastr: ToastrService
     ){
-
+      router.events.subscribe(event => {
+        if (event instanceof NavigationStart) {
+          this.toastr.clear();
+          console.log("notificacion eliminado");
+        }
+      });
     }
 
 
@@ -52,7 +57,9 @@ export class NavPortalWebComponent {
       }
 
       setTimeout(() => {
+        this.toastr.clear();
         this.timeout=true;
+
       }, this.delay);
     }
 

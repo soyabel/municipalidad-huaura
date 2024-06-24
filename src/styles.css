@@ -98,6 +98,10 @@ header .menu .c3:hover {
   /* Ajusta el valor aquí (menor para más oscuro) */
 }
 
+.contenedor-slider-pw{
+  filter: brightness(60%);
+}
+
 /* @media (max-width: 767px) {
   .slider {
     margin-top: 153px;
@@ -548,8 +552,8 @@ canvas {
 
 
 .pie-img {
-  background-color: #EEEEEE;
-  color: var(--color-secundario);
+  background-color: var(--color-secundario);
+  /* color: var(--color-secundario); */
 }
 
 
@@ -805,11 +809,14 @@ iframe {
 
 
 .bg-click{
-  background-color: #68B5F1;
+  background-color: #3E8DCE;
 }
 
 
 .pie-img-sidecom{
   background: rgb(0,66,106);
 
+}
+.img-slider-muni{
+  max-height: 337px;
 }

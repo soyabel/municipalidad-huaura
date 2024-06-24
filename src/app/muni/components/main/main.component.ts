@@ -1,4 +1,4 @@
-import { Component, HostListener, Renderer2, OnInit } from '@angular/core';
+import { Component, Renderer2} from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 

@@ -1,4 +1,5 @@
-import {AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import { Component} from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 
 import { ToastrService } from 'ngx-toastr';
 
@@ -10,13 +11,19 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class MuninoticiasPageComponent  {
 
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService,private router: Router) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.toastr.clear();
+      }
+    });
+   }
   ngOnInit(): void {
     this.mostrarNotificacion();
   }
 
   mostrarNotificacion() {
-    this.toastr.info('Realiza tus consultas en línea', 'SIDECOM', { timeOut: 6000 });
+    this.toastr.info('Realiza tus consultas en línea', 'SIDECOM', { timeOut: 5000 });
   }
 
 }

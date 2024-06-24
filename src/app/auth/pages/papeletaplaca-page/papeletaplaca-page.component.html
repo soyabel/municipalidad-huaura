@@ -60,7 +60,7 @@
           aria-label="Término de búsqueda" aria-describedby="basic-addon1" (input)="filterData()" (click)="onInputClick()" (focus)="onInputFocus()">
       </div>
       <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover">
+        <table class="table table-sm table-bordered table-striped table-hover">
           <thead>
             <tr>
               <th class="bg-primary text-white">Tipo de Papeleta</th>
@@ -135,6 +135,9 @@
             <li class="list-group-item"><span class="fw-bold">Descripción:</span> {{ filteredData[indexRowTable].desc_infr}}</li>
             <li class="list-group-item"><span class="fw-bold">Ubicación:</span> {{ filteredData[indexRowTable].nomb_ubicacion}}</li>
             <li class="list-group-item"><span class="fw-bold">Solidario:</span> {{ propietarioData[0].razo_soc }}</li>
+            <li *ngIf="filteredData[indexRowTable].estado.toUpperCase()==='DEBE'" class="list-group-item">
+              Acercarse a la <span class="fw-bold">OFICINA DE EJECUTORIA COACTIVA NO TRIBUTARIA</span> para consultar si cuentas con el benficio de descuento
+            </li>
           </ul>
         </div>
 
@@ -145,6 +148,12 @@
 
 
 <h4 class="text-center mb-5 fw-bold px-0 mt-3">¡Ahora también disponible para dispositivos Android!</h4>
+<div class="row mx-0">
+  <div class="d-flex justify-content-center align-items-center py-4">
+    <img class="img-fluid escudo px-2" src="assets/img/escudo.png" alt="escudo-muni">
+    <span class=" fw-bold  fs-3 ">SIDECOM</span>
+  </div>
+</div>
 <muni-sidecom></muni-sidecom>
 </main>
 

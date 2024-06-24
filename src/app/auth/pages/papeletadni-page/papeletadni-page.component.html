@@ -16,8 +16,10 @@
           </div>
           <div class="col-6 py-4">
             <p class="my-1"><span class="fw-bold">NOMBRE:</span> {{data[0].razo_soc}}</p>
-            <p class="my-1"><span class="fw-bold">TOTAL DEUDA:</span> S/{{metodoAuth.formatoMoneda(calculateTotalSaldo()) }}</p>
-            <p class="my-1"><span class="fw-bold">SALDO COSTAS:</span> S/{{metodoAuth.formatoMoneda(calcularSaldoCosta()) }}</p>
+            <p class="my-1"><span class="fw-bold">TOTAL DEUDA:</span>
+              S/{{metodoAuth.formatoMoneda(calculateTotalSaldo()) }}</p>
+            <p class="my-1"><span class="fw-bold">SALDO COSTAS:</span>
+              S/{{metodoAuth.formatoMoneda(calcularSaldoCosta()) }}</p>
             <p class="my-1"><span class="fw-bold">TOTAL PAPELETAS:</span> {{data.length}}</p>
           </div>
         </div>
@@ -25,7 +27,8 @@
       <div class="col-lg-6 px-0 ocultar-anuncio">
         <p class="fw-bold denuncia-ya text-danger text-center fw-bolder">¡ COMPROMISO CONTRA LA CORRUPCIÓN !</p>
         <p class="mb-0 ">
-          La <span class="fw-bold">Municipalidad Provincial de Huara</span> refuerza su compromiso anticorrupción con medidas
+          La <span class="fw-bold">Municipalidad Provincial de Huara</span> refuerza su compromiso anticorrupción con
+          medidas
           preventivas y correctivas.
           Priorizamos
           transparencia, honestidad y rendición de cuentas en nuestra administración para servir a la comunidad.
@@ -58,10 +61,11 @@
       <div class="input-group mb-3 ">
         <span class="input-group-text bg-primary text-white fw-bold" id="basic-addon1"> Buscar </span>
         <input type="text" class="form-control border-3" [(ngModel)]="searchTerm" placeholder="Término de búsqueda"
-          aria-label="Término de búsqueda" aria-describedby="basic-addon1" (input)="filterData()" (click)="onInputClick()" (focus)="onInputFocus()">
+          aria-label="Término de búsqueda" aria-describedby="basic-addon1" (input)="filterData()"
+          (click)="onInputClick()" (focus)="onInputFocus()">
       </div>
       <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover">
+        <table class="table table-sm table-bordered table-striped table-hover">
           <thead>
             <tr>
               <th class="bg-primary text-white">Tipo de Papeleta</th>
@@ -138,9 +142,11 @@
               </li>
               <li class="list-group-item"><span class="fw-bold">Código:</span> {{
                 filteredData[indexRowTable].codi_inte}}</li>
-              <li class="list-group-item"><span class="fw-bold">Monto:</span> S/{{metodoAuth.formatoMoneda(filteredData[indexRowTable].tota_pago) }}
+              <li class="list-group-item"><span class="fw-bold">Monto:</span>
+                S/{{metodoAuth.formatoMoneda(filteredData[indexRowTable].tota_pago) }}
               </li>
-              <li class="list-group-item"><span class="fw-bold">Saldo:</span> S/{{metodoAuth.formatoMoneda(filteredData[indexRowTable].sald_pago) }}
+              <li class="list-group-item"><span class="fw-bold">Saldo:</span>
+                S/{{metodoAuth.formatoMoneda(filteredData[indexRowTable].sald_pago) }}
               </li>
               <li class="list-group-item"><span class="fw-bold">Descripción:</span> {{
                 filteredData[indexRowTable].desc_infr}}</li>
@@ -148,7 +154,8 @@
                 filteredData[indexRowTable].nomb_ubicacion}}</li>
               <li class="list-group-item"><span class="fw-bold">Solidario:</span> {{ propietarioData[0].razo_soc }}</li>
               <li *ngIf="filteredData[indexRowTable].estado.toUpperCase()==='DEBE'" class="list-group-item">
-                Acercarse a la <span class="fw-bold">OFICINA DE EJECUTORIA COACTIVA NO TRIBUTARIA</span> para consultar si cuentas con el benficio de descuento
+                Acercarse a la <span class="fw-bold">OFICINA DE EJECUTORIA COACTIVA NO TRIBUTARIA</span> para consultar
+                si cuentas con el benficio de descuento
               </li>
 
             </ul>
@@ -160,5 +167,11 @@
   </div>
 
   <h4 class="text-center mb-5 fw-bold px-0 mt-3">¡Ahora también disponible para dispositivos Android!</h4>
+  <div class="row mx-0">
+    <div class="d-flex justify-content-center align-items-center py-4">
+      <img class="img-fluid escudo px-2" src="assets/img/escudo.png" alt="escudo-muni">
+      <span class=" fw-bold  fs-3 ">SIDECOM</span>
+    </div>
+  </div>
   <muni-sidecom></muni-sidecom>
 </main>

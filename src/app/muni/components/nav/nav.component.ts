@@ -11,17 +11,9 @@ export class NavComponent {
 
   constructor(private router: Router) {}
 
-  navegarPortalWeb() {
-    this.router.navigate(['/portalweb/noticias']);
-  }
-
-
-  redireccionTramites() {
-    window.open('https://www.gob.pe/institucion/munihuaura/tramites-y-servicios', '_blank');
-  }
-
-  redireccionNoticias() {
-    window.open('https://www.gob.pe/institucion/munihuaura/noticias', '_blank');
+  navegarA(route: string, event: Event): void {
+    event.preventDefault();
+    this.router.navigate([route]);
   }
 
 }

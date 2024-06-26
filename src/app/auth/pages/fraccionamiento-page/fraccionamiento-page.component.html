@@ -15,39 +15,42 @@
             </div>
           </div>
           <div class="col-6 py-4">
-              <p class="my-1"><span class="fw-bold">N° DOC: </span>{{ contriUser[0].conpa}}</p>
-              <p class="my-1"><span class="fw-bold">NOMBRE: </span>{{ contriUser[0].nomb}}</p>
-              <p class="my-1"><span class="fw-bold">INSOLUTO: </span>S/{{metodoAuth.formatoMoneda(totalInsoluto())}}</p>
-              <p class="my-1"><span class="fw-bold">DERECHO DE EMISIÓN: </span>S/{{metodoAuth.formatoMoneda(totalDEmision())}}</p>
-              <p class="my-1"><span class="fw-bold">INTERESES: </span>S/{{metodoAuth.formatoMoneda(totalIntereses())}}</p>
-              <p class="my-1"><span class="fw-bold">TOTAL DEUDA: </span>S/{{metodoAuth.formatoMoneda(totalDeuda())}}</p>
+            <p class="my-1"><span class="fw-bold">N° DOC: </span>{{ contriUser[0].conpa}}</p>
+            <p class="my-1"><span class="fw-bold">NOMBRE: </span>{{ contriUser[0].nomb}}</p>
+            <p class="my-1"><span class="fw-bold">INSOLUTO: </span>S/{{metodoAuth.formatoMoneda(totalInsoluto())}}</p>
+            <p class="my-1"><span class="fw-bold">DERECHO DE EMISIÓN:
+              </span>S/{{metodoAuth.formatoMoneda(totalDEmision())}}</p>
+            <p class="my-1"><span class="fw-bold">INTERESES: </span>S/{{metodoAuth.formatoMoneda(totalIntereses())}}</p>
+            <p class="my-1"><span class="fw-bold">TOTAL DEUDA: </span>S/{{metodoAuth.formatoMoneda(totalDeuda())}}</p>
           </div>
         </div>
       </div>
       <div class="col-lg-6 px-0 ocultar-anuncio">
-        <p class="fw-bold denuncia-ya text-danger text-center fw-bolder">¡ COMPROMISO CONTRA LA CORRUPCIÓN !</p>
-        <p class="mb-0 ">
-          La <span class="fw-bold">Municipalidad Provincial de Huara</span> refuerza su compromiso anticorrupción con medidas preventivas y correctivas.
-          Priorizamos
-          transparencia, honestidad y rendición de cuentas en nuestra administración para servir a la comunidad.
-          Trabajamos
-          con la ciudadanía para promover un gobierno justo y transparente, agradeciendo la confianza mientras
-          construimos un
-          futuro ético y responsable. <span class="fw-bold">¡Juntos, edificamos un entorno mejor!</span>
-        </p>
-        <div class="row">
-          <div class="col-3">
-            <img src="assets/img/ministeriopublico.png" alt="">
+        <p class="text-center fw-bold titulo-cuentas-municipales text-danger mb-2">Puedes realizar tus pagos - CUENTAS
+          MUNICIPALES</p>
+        <div class="row mx-0 contenedor-cuentas">
+          <div class="col-12">
+            <div class="d-flex justify-content-center">
+              <img class="img-fluid img-banconacion" src="assets/img/bancodelanacion.jpg" alt="banco-de-la-nacion">
+            </div>
+            <p class="text-center fw-bold my-0 titulo-cuentas">PREDIOS Y ARBITRIOS</p>
+            <p class="text-center my-0"><span class="fw-bold span-cuentas">Cta:</span> 00321010504</p>
+            <p class="text-center my-0"><span class="fw-bold span-cuentas">CCI:</span> 018-321-000321010504-09</p>
+            <p class="text-center fw-bold my-0 bg-whatsapp"><img class="px-2" src="assets/img/whatsapp.png"
+                alt="whatsapp">WhatsApp</p>
+            <p class="text-center fw-bold my-0">972 237 404</p>
           </div>
-          <div class="col-9 pt-4">
-            <p class="mb-1 fw-bold">Ministerio Publico Distrito Fiscal Huaura</p>
-            <p><span class="fw-bold">Telefono: </span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z" />
-              </svg> (01) 2393336</p>
+          <div class="col-12 mt-2">
+            <p class="fw-bold my-0 texto-ajustado">
+              Enviar el recibo escaneado, bajo que concepto y año, está realizando el pago
+              ( Impuesto Predial y Arbitrios Municipales) así como los datos del titular de
+              la deuda (nombres completos, código de contribuyente, DNI, etc ) al correo:
+            </p>
+            <p class="text-center fw-bold my-0"><img class="px-2" src="assets/img/correo.png"
+                alt="correo">gestiondecobranza@munihuacho.gob.pe</p>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -60,68 +63,67 @@
     </div>
   </div>
 
- <div class="row mt-4" *ngIf="debe">
-  <div class="col-12 col-lg-7">
-    <div class="mb-3 contenedor-table">
+  <div class="row mt-4" *ngIf="debe">
+    <div class="col-12 col-lg-7">
+      <div class="mb-3 contenedor-table">
 
-      <div class="input-group mb-3 ">
-        <span class="input-group-text bg-primary text-white fw-bold" id="basic-addon1"> Buscar </span>
-        <input type="text" class="form-control border-3" [(ngModel)]="searchTerm" placeholder="Término de búsqueda"
-          aria-label="Término de búsqueda" aria-describedby="basic-addon1" (input)="filterData()" (click)="onInputClick()" (focus)="onInputFocus()">
-      </div>
-      <div class="table-responsive">
-        <table class="table table-sm table-bordered table-striped table-hover">
-          <thead>
-            <tr>
-              <th class="bg-primary text-white">Año</th>
+        <div class="input-group mb-3 ">
+          <span class="input-group-text bg-primary text-white fw-bold" id="basic-addon1"> Buscar </span>
+          <input type="text" class="form-control border-3" [(ngModel)]="searchTerm" placeholder="Término de búsqueda"
+            aria-label="Término de búsqueda" aria-describedby="basic-addon1" (input)="filterData()"
+            (click)="onInputClick()" (focus)="onInputFocus()">
+        </div>
+        <div class="table-responsive">
+          <table class="table table-sm table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th class="bg-primary text-white">Año</th>
                 <th class="bg-primary text-white">Cuota</th>
                 <th class="bg-primary text-white">Insoluto</th>
                 <th class="bg-primary text-white">D. Emis</th>
                 <th class="bg-primary text-white">Sobretasas</th>
-                <th class="bg-primary text-white">Amnistia</th>
                 <th class="bg-primary text-white">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              *ngFor="let fraccionamiento of filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage); let i = index">
-              <td>{{ fraccionamiento.aini }}</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let fraccionamiento of filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage); let i = index">
+                <td>{{ fraccionamiento.aini }}</td>
                 <td>{{ fraccionamiento.peini }}</td>
                 <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.vdeuda)}}</td>
                 <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.vderemi)}}</td>
                 <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.vinte)}}</td>
-                <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.vtotalamn)}}</td>
                 <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.votros)}}</td>
-            </tr>
-          </tbody>
-        </table>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
 
       </div>
+      <div class="pb-3 overflow-auto">
+        <nav class="Page navigation example">
+          <ul class="pagination pb-0 mb-0 bg-white">
+            <li class="page-item item-pagination" *ngFor="let page of pages" [class.active]="page === currentPage">
+              <a class="page-link" (click)="setCurrentPage(page)">{{ page }}</a>
+            </li>
+          </ul>
+        </nav>
 
+      </div>
     </div>
-    <div class="pb-3 overflow-auto">
-      <nav class="Page navigation example">
-        <ul class="pagination pb-0 mb-0 bg-white">
-          <li class="page-item item-pagination" *ngFor="let page of pages" [class.active]="page === currentPage">
-            <a class="page-link" (click)="setCurrentPage(page)">{{ page }}</a>
-          </li>
-        </ul>
-      </nav>
-
+    <div class="col-12 col-lg-5 d-flex justify-content-center mt-4 mt-lg-0">
+      <img src="assets/img/obras-informacion.jpg" class="img-fluid img-informacion border border-5"
+        alt="obras-informacion">
     </div>
   </div>
-  <div class="col-12 col-lg-5 d-flex justify-content-center mt-4 mt-lg-0">
-    <img src="assets/img/transporte-info.png" class="img-fluid img-informacion border border-5" alt="tributo-muni">
-  </div>
- </div>
 
- <h4 class="text-center mb-5 fw-bold px-0 mt-5">¡Ahora también disponible para dispositivos Android!</h4>
- <div class="row mx-0">
-  <div class="d-flex justify-content-center align-items-center py-4">
-    <img class="img-fluid escudo px-2" src="assets/img/escudo.png" alt="escudo-muni">
-    <span class=" fw-bold  fs-3 ">SIDECOM</span>
+  <h4 class="text-center mb-5 fw-bold px-0 mt-5">¡Ahora también disponible para dispositivos Android!</h4>
+  <div class="row mx-0">
+    <div class="d-flex justify-content-center align-items-center py-4">
+      <img class="img-fluid escudo px-2" src="assets/img/escudo.png" alt="escudo-muni">
+      <span class=" fw-bold  fs-3 ">SIDECOM</span>
+    </div>
   </div>
-</div>
- <muni-sidecom></muni-sidecom>
+  <muni-sidecom></muni-sidecom>
 </main>
-

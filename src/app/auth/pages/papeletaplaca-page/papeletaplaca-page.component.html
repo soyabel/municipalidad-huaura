@@ -6,7 +6,7 @@
       </button>
     </div>
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <p class="text-center fw-bold">DATOS PERSONALES</p>
         <div class="row">
           <div class="col-6 pt-3">
@@ -15,13 +15,14 @@
             </div>
           </div>
           <div class="col-6 py-4">
+            <p class="my-1"><span class="fw-bold">N° DOC:</span> {{data[0].doid_pers}}</p>
             <p class="my-1"><span class="fw-bold">TOTAL DEUDA:</span> S/{{metodoAuth.formatoMoneda(calculateTotalSaldo()) }}</p>
             <p class="my-1"><span class="fw-bold">SALDO COSTAS:</span> S/{{metodoAuth.formatoMoneda(calcularSaldoCosta()) }}</p>
             <p class="my-1"><span class="fw-bold">TOTAL PAPELETAS:</span> {{data.length}}</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-6 px-0 ocultar-anuncio">
+      <!-- <div class="col-lg-6 px-0 ocultar-anuncio">
         <p class="fw-bold denuncia-ya text-danger text-center fw-bolder">¡ COMPROMISO CONTRA LA CORRUPCIÓN !</p>
         <p class="mb-0 ">
           La <span class="fw-bold">Municipalidad Provincial de Huara</span> refuerza su compromiso anticorrupción con medidas
@@ -46,7 +47,7 @@
               </svg> (01) 2393336</p>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
   </div>

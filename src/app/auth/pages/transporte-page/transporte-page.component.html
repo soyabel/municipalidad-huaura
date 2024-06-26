@@ -8,60 +8,115 @@
    <h4 class="text-center fw-bold pb-4 titulo-color ">TRANSPORTE</h4>
   </div>
   <div class="row">
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-lg-6">
         <div class="row">
           <div class="col-12 pb-4">
-            <div class="card border border-5">
-              <div class="card-header text-center fw-bold">
-                PADRÓN
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><span class="fw-bold">N° PADRÓN:</span> {{dataTransporte[0].nro_padron}}</li>
-                <li class="list-group-item"><span class="fw-bold">DNI/RUC:</span> {{dataTransporte[0].num_doc_identidad}}</li>
-                <li class="list-group-item"><span class="fw-bold">PRODIETARIO:</span> {{dataTransporte[0].propietario}}</li>
-                <li class="list-group-item"><span class="fw-bold">MODELO:</span> {{dataTransporte[0].modelo}}</li>
-                <li class="list-group-item"><span class="fw-bold">PLACA ACTUAL:</span> {{dataTransporte[0].placa_actual}}</li>
-                <li class="list-group-item"><span class="fw-bold">FECHA DE PADRON:</span> {{dataTransporte[0].fecha_padron}}</li>
-                <li class="list-group-item"><span class="fw-bold">CLASE:</span> {{dataTransporte[0].clase}}</li>
-                <li class="list-group-item"><span class="fw-bold">MARCA:</span> {{dataTransporte[0].marca}}</li>
-                <li class="list-group-item"><span class="fw-bold">COLOR:</span> {{dataTransporte[0].color}}</li>
-                <li class="list-group-item"><span class="fw-bold">ESTADO:</span> {{dataTransporte[0].estado}}</li>
-              </ul>
-            </div>
+            <table class="table table-sm table-bordered table-striped table-hover tabla-width">
+              <thead>
+                <tr>
+                  <th colspan="2" class="bg-tabla text-white text-center">PADRÓN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">N° PADRÓN</td>
+                  <td>{{dataTransporte[0].nro_padron}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">DNI/RUC</td>
+                  <td>{{dataTransporte[0].num_doc_identidad}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">PROPIETARIO</td>
+                  <td>{{dataTransporte[0].propietario}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">MODELO</td>
+                  <td>{{dataTransporte[0].modelo}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">PLACA ACTUAL</td>
+                  <td>{{dataTransporte[0].placa_actual}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">FECHA DE PADRÓN</td>
+                  <td>{{dataTransporte[0].fecha_padron}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">CLASE</td>
+                  <td>{{dataTransporte[0].clase}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">MARCA</td>
+                  <td>{{dataTransporte[0].marca}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">COLOR</td>
+                  <td>{{dataTransporte[0].color}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">ESTADO</td>
+                  <td>{{dataTransporte[0].estado}}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div class="col-12">
-            <div class="card mb-3 border border-5" >
-              <div class="card-header text-center fw-bold">
-                ÚLTIMO TRÁMITE
-              </div>
-              <div class="row g-0">
-                <div class="px-2 col-md-4 d-flex justify-content-center align-items-center">
-                  <img src="assets/img/motocuy.png" class="img-fluid rounded-start" alt="motocuy">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><span class="fw-bold">TARJETA:</span> {{dataProcedimiento[0].tarjeta}}</li>
-                      <li class="list-group-item"><span class="fw-bold">N° TARJETA:</span> {{dataProcedimiento[0].nro_tarjeta}}</li>
-                      <li class="list-group-item"><span class="fw-bold">FECHA DE INICIO:</span> {{dataProcedimiento[0].fecha_inicio}}</li>
-                      <li class="list-group-item"><span class="fw-bold">FECHA DE CADUCIDAD:</span> {{dataProcedimiento[0].fecha_caducidad}}</li>
-                      <li class="list-group-item"><span class="fw-bold">DÍAS VENCIDOS:</span> {{dataProcedimiento[0].dias_vencidos}}</li>
-                      <li class="list-group-item"><span class="fw-bold">TRAMITE:</span> {{dataProcedimiento[0].tramite}}</li>
-                      <li class="list-group-item"><span class="fw-bold">N° EXPEDIENTE:</span> {{dataProcedimiento[0].expediente_nro}}</li>
-                      <li class="list-group-item"><span class="fw-bold">EMPRESA:</span> {{dataProcedimiento[0].empresa}}</li>
-                      <li class="list-group-item"><span class="fw-bold">SERVICIO:</span> {{dataProcedimiento[0].servicio}}</li>
-                      <li class="list-group-item"><span class="fw-bold">ESTADO:</span> {{dataProcedimiento[0].estado}}</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <table class="table table-sm table-bordered table-striped table-hover tabla-width">
+              <thead>
+                <tr>
+                  <th colspan="2" class="bg-tabla text-white text-center">ÚLTIMO TRÁMITE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">TARJETA</td>
+                  <td>{{dataProcedimiento[0].tarjeta}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">N° TARJETA</td>
+                  <td>{{dataProcedimiento[0].nro_tarjeta}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">FECHA DE INICIO</td>
+                  <td>{{dataProcedimiento[0].fecha_inicio}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">FECHA DE CADUCIDAD</td>
+                  <td>{{dataProcedimiento[0].fecha_caducidad}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">DÍAS VENCIDOS</td>
+                  <td>{{dataProcedimiento[0].dias_vencidos}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">TRAMITE</td>
+                  <td>{{dataProcedimiento[0].tramite}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">N° EXPEDIENTE</td>
+                  <td>{{dataProcedimiento[0].expediente_nro}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">EMPRESA</td>
+                  <td>{{dataProcedimiento[0].empresa}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">SERVICIO</td>
+                  <td>{{dataProcedimiento[0].servicio}}</td>
+                </tr>
+                <tr>
+                  <td class="col-fijo-1 fw-bold">ESTADO</td>
+                  <td>{{dataProcedimiento[0].estado}}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-md-6 pb-4 pb-sm-0 d-flex justify-content-center">
-        <img src="assets/img/transporte-info.png" class="img-fluid img-informacion border border-5" alt="...">
+      <div class="col-12 col-lg-6 pb-4 pb-sm-0 d-flex justify-content-center">
+        <img src="assets/img/obras-informacion.jpg" class="img-fluid img-informacion border border-5" alt="img-informacion">
       </div>
   </div>
 

@@ -19,7 +19,6 @@ export class NavPortalWebComponent {
       router.events.subscribe(event => {
         if (event instanceof NavigationStart) {
           this.toastr.clear();
-          console.log("notificacion eliminado");
         }
       });
     }

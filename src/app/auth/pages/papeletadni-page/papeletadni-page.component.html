@@ -155,8 +155,8 @@
                 filteredData[indexRowTable].nomb_ubicacion}}</li>
               <li class="list-group-item"><span class="fw-bold">Solidario:</span> {{ propietarioData[0].razo_soc }}</li>
               <li *ngIf="filteredData[indexRowTable].estado.toUpperCase()==='DEBE'" class="list-group-item">
-                Acercarse a la <span class="fw-bold">OFICINA DE EJECUTORIA COACTIVA NO TRIBUTARIA</span> para consultar
-                si cuentas con el benficio de descuento
+                Acercarse a la <span class="fw-bold">OFICINA DE {{filteredData[indexRowTable].nomb_ubicacion}}</span> para consultar
+                si cuentas con el beneficio de descuento.
               </li>
 
             </ul>

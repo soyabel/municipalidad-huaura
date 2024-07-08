@@ -12,4 +12,5 @@ export interface Arbitrio {
   vinte:     number;
   votros:    number;
   vtotalamn: number;
+  estaamni:  boolean;
 }

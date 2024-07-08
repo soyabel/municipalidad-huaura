@@ -13,4 +13,5 @@ export interface Fraccionamiento {
   vinte:     number;
   votros:    number;
   vtotalamn: number;
+  estaamni:  boolean;
 }

@@ -22,6 +22,7 @@
               </span>S/{{metodoAuth.formatoMoneda(totalDEmision()) }}</p>
             <p class="my-1"><span class="fw-bold">INTERESES: </span>S/{{metodoAuth.formatoMoneda(totalIntereses()) }}
             </p>
+            <p *ngIf="dataArbitrio[0]?.estaamni==true" class="my-1"><span class="fw-bold">AMNISTÍA: </span>S/{{metodoAuth.formatoMoneda(totalAmnistia())}}</p>
             <p class="my-1"><span class="fw-bold">TOTAL DEUDA: </span>S/{{metodoAuth.formatoMoneda(totalDeuda()) }}</p>
           </div>
         </div>
@@ -61,9 +62,9 @@
                 alt="correo">gestiondecobranza@munihuacho.gob.pe</p>
           </div>
           <div class="col-6">
-            <p class="text-center fw-bold my-0 bg-whatsapp"><img class="px-2" src="assets/img/whatsapp.png"
-              alt="whatsapp">WhatsApp</p>
-          <p class="text-center fw-bold my-0">972 237 404</p>
+            <p class="text-center fw-bold my-0 bg-whatsapp"><a href="https://wa.me/+51972237404" target="_blank"><img
+                  class="px-2" src="assets/img/whatsapp.png" alt="whatsapp">WhatsApp</a></p>
+            <p class="text-center fw-bold my-0">972 237 404</p>
           </div>
 
         </div>
@@ -152,8 +153,8 @@
                   <th class="bg-primary text-white">Cuota</th>
                   <th class="bg-primary text-white">Insoluto</th>
                   <th class="bg-primary text-white">D. Emis</th>
-                  <th class="bg-primary text-white">Sobretasas</th>
-
+                  <th class="bg-primary text-white">Intereses</th>
+                  <th *ngIf="dataArbitrio[0]?.estaamni==true" class="bg-primary text-white">Amnistía</th>
                   <th class="bg-primary text-white">Total</th>
                 </tr>
               </thead>
@@ -163,7 +164,7 @@
                   <td>S/{{metodoAuth.formatoMoneda(detalle.vdeuda)}}</td>
                   <td>S/{{metodoAuth.formatoMoneda(detalle.vderemi)}}</td>
                   <td>S/{{metodoAuth.formatoMoneda(detalle.vinte)}}</td>
-
+                  <td *ngIf="dataArbitrio[0]?.estaamni==true">S/{{metodoAuth.formatoMoneda(detalle.vtotalamn)}}</td>
                   <td>S/{{metodoAuth.formatoMoneda(detalle.votros)}}</td>
                 </tr>
               </tbody>

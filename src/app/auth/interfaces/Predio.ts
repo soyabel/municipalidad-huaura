@@ -12,4 +12,5 @@ export interface Predio {
   vinte:     number;
   votros:    number;
   vtotalamn: number;
+  estaamni:  boolean;
 }

@@ -15,12 +15,14 @@
             </div>
           </div>
           <div class="col-6 py-4">
-            <p class="my-1"><span class="fw-bold">N° DOC: </span>{{ contriUser[0].conpa}}</p>
+            <p  class="my-1"><span class="fw-bold">N° DOC: </span>{{ contriUser[0].conpa}}</p>
             <p class="my-1"><span class="fw-bold">NOMBRE: </span>{{ contriUser[0].nomb}}</p>
             <p class="my-1"><span class="fw-bold">INSOLUTO: </span>S/{{metodoAuth.formatoMoneda(totalInsoluto())}}</p>
             <p class="my-1"><span class="fw-bold">DERECHO DE EMISIÓN:
               </span>S/{{metodoAuth.formatoMoneda(totalDEmision())}}</p>
             <p class="my-1"><span class="fw-bold">INTERESES: </span>S/{{metodoAuth.formatoMoneda(totalIntereses())}}</p>
+             <p *ngIf=" dataFracci[0]?.estaamni==true" class="my-1"><span class="fw-bold">AMNISTÍA: </span>S/{{metodoAuth.formatoMoneda(totalAmnistia())}}</p>
+
             <p class="my-1"><span class="fw-bold">TOTAL DEUDA: </span>S/{{metodoAuth.formatoMoneda(totalDeuda())}}</p>
           </div>
         </div>
@@ -49,8 +51,8 @@
                 alt="correo">gestiondecobranza@munihuacho.gob.pe</p>
           </div>
           <div class="col-6">
-            <p class="text-center fw-bold my-0 bg-whatsapp"><img class="px-2" src="assets/img/whatsapp.png"
-                alt="whatsapp">WhatsApp</p>
+            <p class="text-center fw-bold my-0 bg-whatsapp"><a href="https://wa.me/+51972237404" target="_blank"><img
+              class="px-2" src="assets/img/whatsapp.png" alt="whatsapp">WhatsApp</a></p>
             <p class="text-center fw-bold my-0">972 237 404</p>
           </div>
         </div>
@@ -85,7 +87,8 @@
                 <th class="bg-primary text-white">Cuota</th>
                 <th class="bg-primary text-white">Insoluto</th>
                 <th class="bg-primary text-white">D. Emis</th>
-                <th class="bg-primary text-white">Sobretasas</th>
+                <th class="bg-primary text-white">Intereses</th>
+               <th *ngIf="dataFracci[0]?.estaamni==true" class="bg-primary text-white">Amnistía</th>
                 <th class="bg-primary text-white">Total</th>
               </tr>
             </thead>
@@ -97,6 +100,7 @@
                 <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.vdeuda)}}</td>
                 <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.vderemi)}}</td>
                 <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.vinte)}}</td>
+                <td *ngIf="dataFracci[0]?.estaamni==true">S/{{metodoAuth.formatoMoneda(fraccionamiento.vtotalamn)}}</td>
                 <td>S/{{metodoAuth.formatoMoneda(fraccionamiento.votros)}}</td>
               </tr>
             </tbody>
@@ -129,5 +133,6 @@
       <span class=" fw-bold  fs-3 ">SIDECOM</span>
     </div>
   </div>
+
   <muni-sidecom></muni-sidecom>
 </main>
